@@ -12,6 +12,11 @@ export class PublicAssociationsService {
   ) {}
 
   public getData(): Promise<Association[]> {
-    return this.http.get('/assets/mock-data/public-associations.json').map((res) => res.json());
+    return this.http.get('/assets/mock-data/public-associations.json')
+               .map((res: Response) => res.json());
+  }
+
+  public addNew(newAssociation: Association): Promise {
+    return this.http.get('/assets/mock-data/add-new-public-association.json');
   }
 }

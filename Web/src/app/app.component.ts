@@ -1,15 +1,18 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: [ './app.component.css' ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="nav navbar-nav">
+        <li>
+          <a [routerLink]="['./']"
+             [routerLinkActiveOptions]="{exact: true}"
+             routerLinkActive="active">
+                Index
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <main>

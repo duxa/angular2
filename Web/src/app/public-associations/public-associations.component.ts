@@ -1,16 +1,14 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { PublicAssociationsService } from './public-associations.service';
 import { Association } from './association';
 
 @Component({
-  selector: 'home',
-  encapsulation: ViewEncapsulation.None,
-  providers: [ PublicAssociationsService ],
-  styleUrls: [ './home.component.css' ],
-  templateUrl: './home.component.html'
+  selector: 'public-associations',
+  styleUrls: [ './public-associations.component.css' ],
+  templateUrl: './public-associations.component.html'
 })
-export class HomeComponent implements OnInit {
+export class PublicAssociationsComponent implements OnInit {
   public associations: Association[];
 
   constructor(

@@ -1,5 +1,8 @@
 <div>
   <h1>Реєстр громадських організацій</h1>
+  <p>
+    <a class="btn btn-primary" [routerLink]="['./add-new']">Зареэструвати нову</a>
+  </p>
   <table *ngIf="associations?.length > 0" class="table table-bordered table-hover table-striped">
     <thead>
         <tr>
@@ -11,7 +14,7 @@
             <th>Адреса</th>
             <th>Телефон</th>
             <th>Засновники</th>
-            <th>Керування</th>
+            <th>Керівники</th>
             <th>КВЭД</th>
             <th>Ліцензія</th>
         </tr>
@@ -25,9 +28,7 @@
             <td>{{association.Edrpou}}</td>
             <td>{{association.Adress}}</td>
             <td>{{association.Phone}}</td>
-            <td>
-                <div *ngFor="let zasnovn of association.Zasnovn">{{zasnovn}}</div>
-            </td>
+            <td><div *ngFor="let zasnovn of association.Zasnovn">{{zasnovn}}</div></td>
             <td><div *ngFor="let government of association.Government">{{government}}</div></td>
             <td>{{association.Kved}}</td>
             <td>{{association.License}}</td>

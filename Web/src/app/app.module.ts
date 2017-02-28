@@ -8,16 +8,17 @@ import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
+import { PublicAssociationsComponent } from './public-associations';
+import { NewAssociationComponent } from './public-associations/new-association.component';
 
-import '../styles/styles.scss';
-import '../styles/headings.css';
+import { PublicAssociationsService } from './public-associations/public-associations.service';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    HomeComponent
+    PublicAssociationsComponent,
+    NewAssociationComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import '../styles/headings.css';
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [
+    PublicAssociationsService,
     ENV_PROVIDERS
   ]
 })

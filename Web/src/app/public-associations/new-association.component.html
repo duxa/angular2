@@ -1,0 +1,43 @@
+<div>
+  <h1>Нова громадська організація</h1>
+  <div class="form-group">
+    <label>Назва</label>
+    <input type="text" class="form-control" placeholder="Назва" [(ngModel)]="newAssociation.Name" />
+  </div>
+  <div class="form-group">
+    <label>Тип</label>
+    <input type="text" class="form-control" placeholder="Тип" [(ngModel)]="newAssociation.VudName" />
+  </div>
+  <div class="form-group">
+    <label>ЄДРПОУ</label>
+    <input type="text" class="form-control" placeholder="ЄДРПОУ" [(ngModel)]="newAssociation.Edrpou" />
+  </div>
+  <div class="form-group">
+    <label>Адреса</label>
+    <input type="text" class="form-control" placeholder="Адреса" [(ngModel)]="newAssociation.Adress" />
+  </div>
+  <div class="form-group">
+    <label>Телефон</label>
+    <input type="text" class="form-control" placeholder="Телефон" [(ngModel)]="newAssociation.Phone" />
+  </div>
+
+  <div class="form-group">
+    <label>Засновники</label>
+    <input type="text" class="form-control" placeholder="Засновники" [(ngModel)]="newAssociation.Zasnovn" />
+  </div>
+  <div class="form-group">
+    <label>Керівники</label>
+    <input type="text" class="form-control" placeholder="Керівники" [(ngModel)]="newAssociation.Government" />
+  </div>
+
+  <div class="form-group">
+    <label>КВЭД</label>
+    <input type="text" class="form-control" placeholder="КВЭД" [(ngModel)]="newAssociation.Kved" />
+  </div>
+  <div class="form-group">
+    <label>Ліцензія</label>
+    <input type="text" class="form-control" placeholder="Ліцензія" [(ngModel)]="newAssociation.License" />
+  </div>
+
+  <button class="btn btn-primary" (click)="addNew()">Зареэструвати</button>
+</div>

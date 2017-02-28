@@ -8,14 +8,8 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 
   <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
-
-  <% if (webpackConfig.htmlElements.headTags) { %>
-  <!-- Configured Head Tags  -->
-  <%= webpackConfig.htmlElements.headTags %>
-  <% } %>
-
   <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
-  <!-- base url -->
+
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 </head>
 <body>
