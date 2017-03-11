@@ -22,11 +22,11 @@ namespace Duxa.DAL
         public RepositoryBase(string connectionString, string collectionName)
         {
             this._client = new MongoClient(connectionString);
-            this._database = this.GetDatabase(collectionName);
+            this._database = this.GetDatabase(connectionString);
             this.Collection = this._database.GetCollection<TEntity>(collectionName);
         }
 
-        private IMongoDatabase GetDatabase(string collectionName)
+        private IMongoDatabase GetDatabase(string connectionString)
         {
             return this._client.GetDatabase(new MongoUrl(connectionString).DatabaseName);
         }
@@ -34,6 +34,11 @@ namespace Duxa.DAL
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             return this.Collection.AsQueryable().First(predicate);
+        }
+
+        public List<TEntity> GetAll()
+        {
+            return this.Collection.AsQueryable().ToList();
         }
 
         public void Save(TEntity entity)

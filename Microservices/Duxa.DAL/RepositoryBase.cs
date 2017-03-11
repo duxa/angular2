@@ -41,5 +41,10 @@ namespace Duxa.DAL
         {
             this.Collection.InsertOne(entity);
         }
+
+        public List<TEntity> GetALL()
+        {
+            return this.Collection.AsQueryable().ToList();
+        }
     }
 }

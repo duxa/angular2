@@ -7,6 +7,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Autofac;
+using Duxa.Infrastructure;
+using Gaev.Microservices.Nancy;
 
 namespace Duxa.Microservices.Nancy
 {
@@ -33,6 +36,11 @@ namespace Duxa.Microservices.Nancy
     {
         public void Configuration(IAppBuilder app)
         {
+            var builder = new ContainerBuilder();
+            AutofacConfiguraion.Modules = new List<Module>();
+            AutofacConfiguraion.Modules.Add(new AppModule());
+            AutofacConfiguraion.Modules.ForEach(m => builder.RegisterModule(m));
+            builder.Build();
             app.UseWebApi(new BuldHttpConfiguration());
         }
     }

@@ -10,6 +10,7 @@ namespace Duxa.DAL.Interfaces
     public interface IRepository<TEntity>
     {
         TEntity Get(Expression<Func<TEntity, bool>> predicate);
+        List<TEntity> GetALL();
         void Save(TEntity entity);
     }
 }
