@@ -1,4 +1,9 @@
-:host {
+:host, public-associations {
     display: block;
     padding: 8px;
+}
+
+.associations-pagination .ng2-pagination a {
+  cursor: pointer;
+  text-decoration: none;
 }

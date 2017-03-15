@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let association of associations">
+        <tr *ngFor="let association of associations | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
             <td>{{association.RegNum}}</td>
             <td>{{association.DateReg}}</td>
             <td>{{association.Name}}</td>
@@ -35,4 +35,10 @@
         </tr>
     </tbody>
   </table>
+  <pagination-controls class="associations-pagination"
+                       (pageChange)="getPage($event)"
+                       autoHide="true"
+                       previousLabel="Попередня"
+                       nextLabel="Наступна">
+  </pagination-controls>
 </div>

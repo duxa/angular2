@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import { Ng2PaginationModule } from 'ng2-pagination';
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 
@@ -24,6 +25,7 @@ import { PublicAssociationsService } from './public-associations/public-associat
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2PaginationModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [

@@ -5,12 +5,8 @@ import { Component } from '@angular/core';
   template: `
     <nav class="navbar navbar-default navbar-static-top">
       <ul class="nav navbar-nav">
-        <li>
-          <a [routerLink]="['./']"
-             [routerLinkActiveOptions]="{exact: true}"
-             routerLinkActive="active">
-                Index
-          </a>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="">Домашня сторінка</a>
         </li>
       </ul>
     </nav>
