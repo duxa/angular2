@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <ul class="nav navbar-nav width100">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a routerLink="" i18n="Homepage link|Link to the homepage from main menu">Home</a>
+    </li>
+  </ul>
+  <div class="languages pull-right">
+    <label i18n="Other languages label|Label for dropdown with supported languages">Other languages:</label>
+    <select [(ngModel)]="userLocale" (ngModelChange)="setUserLocale($event)">
+      <option *ngFor="let locale of locales" [value]="locale.id">{{locale.name}}</option>
+    </select>
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

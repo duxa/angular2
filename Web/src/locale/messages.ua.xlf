@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="aef7ad9cccc3c12731794034aecac9bc592c08bc" datatype="html">
+        <source>Home</source>
+        <target>Домашня сторінка</target>
+        <note priority="1" from="description">Link to the homepage from main menu</note>
+        <note priority="1" from="meaning">Homepage link</note>
+      </trans-unit>
+      <trans-unit id="c733b3894340a4ed9f1a8511ea4c228018b78ac2" datatype="html">
+        <source>Other languages:</source>
+        <target>Інші мови:</target>
+        <note priority="1" from="description">Label for dropdown with supported languages</note>
+        <note priority="1" from="meaning">Other languages label</note>
+      </trans-unit>
+      <trans-unit id="d6b6f343a1c42e194d60a508a6c1aab9c6fa93a8" datatype="html">
+        <source>The register of public organizations</source>
+        <target>Реєстр громадських організацій</target>
+        <note priority="1" from="description">The title of register of public organizations</note>
+        <note priority="1" from="meaning">Title of register</note>
+      </trans-unit>
+      <trans-unit id="5b7e78ce552759ad1ff9e9e89b3579d8e772e814" datatype="html">
+        <source>Register new</source>
+        <target>Зареєструвати нову</target>
+        <note priority="1" from="description">Link to the &apos;register new organization&apos; page</note>
+        <note priority="1" from="meaning">Register new link</note>
+      </trans-unit>
+      <trans-unit id="d0d5baaaa70a48e729083260963c7f53fead9702" datatype="html">
+        <source>№</source>
+        <target>№</target>
+        <note priority="1" from="description">Numero sign for the public organization</note>
+        <note priority="1" from="meaning">Column header for Numero sign</note>
+      </trans-unit>
+      <trans-unit id="5a030cb123716541610ab41f3aae65f9385e77f0" datatype="html">
+        <source>Registration Date</source>
+        <target>Дата реєстраціЇ</target>
+        <note priority="1" from="description">Date of registration of public organization</note>
+        <note priority="1" from="meaning">Column header for Registration Date</note>
+      </trans-unit>
+      <trans-unit id="ea79a0d7bbdeaee14d6d2ed8e6ae93e46218550b" datatype="html">
+        <source>Name</source>
+        <target>Назва</target>
+        <note priority="1" from="description">Name of public organization</note>
+        <note priority="1" from="meaning">Column header for Name</note>
+      </trans-unit>
+      <trans-unit id="f02fc73815d7a70e7929c0034eee8b8490863b4b" datatype="html">
+        <source>Type</source>
+        <target>Тип</target>
+        <note priority="1" from="description">Type of public organization</note>
+        <note priority="1" from="meaning">Column header for Type</note>
+      </trans-unit>
+      <trans-unit id="c5d0cbd9c70b5a85757274eb7924caf0c5f4f551" datatype="html">
+        <source>EDRPOU</source>
+        <target>ЄДРПОУ</target>
+        <note priority="1" from="description">EDRPOU of public organization</note>
+        <note priority="1" from="meaning">Column header for EDRPOU</note>
+      </trans-unit>
+      <trans-unit id="f2a365a72dbfe49487014becac83dd6eabd384e6" datatype="html">
+        <source>Address</source>
+        <target>Адреса</target>
+        <note priority="1" from="description">Address of public organization</note>
+        <note priority="1" from="meaning">Column header for Address</note>
+      </trans-unit>
+      <trans-unit id="92f7a887ef441ba23b644f6a96b476c06f2e8832" datatype="html">
+        <source>Phone</source>
+        <target>Телефон</target>
+        <note priority="1" from="description">Phone of public organization</note>
+        <note priority="1" from="meaning">Column header for Phone</note>
+      </trans-unit>
+      <trans-unit id="feb254f729d1e69a0471d72f56bcd63ccba1e19b" datatype="html">
+        <source>Founders</source>
+        <target>Засновники</target>
+        <note priority="1" from="description">Founders of public organization</note>
+        <note priority="1" from="meaning">Column header for Founders</note>
+      </trans-unit>
+      <trans-unit id="34da87cc8056799962114a78aa9c7f5dea0979a3" datatype="html">
+        <source>Leaders</source>
+        <target>Керівники</target>
+        <note priority="1" from="description">Leaders of public organization</note>
+        <note priority="1" from="meaning">Column header for Leaders</note>
+      </trans-unit>
+      <trans-unit id="a5edc06c6157e87300306dcf85e894c459e866db" datatype="html">
+        <source>KVED</source>
+        <target>КВЕД</target>
+        <note priority="1" from="description">KVED of public organization</note>
+        <note priority="1" from="meaning">Column header for KVED</note>
+      </trans-unit>
+      <trans-unit id="aea7cf79783137094b3af3ba11bfb1aec8d0938f" datatype="html">
+        <source>License</source>
+        <target>Ліцензія</target>
+        <note priority="1" from="description">License of public organization</note>
+        <note priority="1" from="meaning">Column header for License</note>
+      </trans-unit>
+      <trans-unit id="680d5c75b7fd8d37961083608b9fcdc4167b4c43" datatype="html">
+        <source>Previous</source>
+        <target>Попередня</target>
+        <note priority="1" from="description">Previous</note>
+      </trans-unit>
+      <trans-unit id="f732c304c7433e5a83ffcd862c3dce709a0f4982" datatype="html">
+        <source>Next</source>
+        <target>Наступна</target>
+        <note priority="1" from="description">Next</note>
+      </trans-unit>
+      <trans-unit id="1114df7b3f7a100f9891815ee5aa6e8b612c5b34" datatype="html">
+        <source>The new public organization</source>
+        <target>Нова громадська організація</target>
+        <note priority="1" from="description">Title for the form of creation of new public organization</note>
+        <note priority="1" from="meaning">The new public organization</note>
+      </trans-unit>
+      <trans-unit id="8ccb3759537a68547f34b846e3076779cd86811d" datatype="html">
+        <source>Name</source>
+        <target>Назва</target>
+        <note priority="1" from="description">Name field of public organization</note>
+        <note priority="1" from="meaning">Name field</note>
+      </trans-unit>
+      <trans-unit id="33d54dc14fede562f048de0e12c3d0dad57c51d8" datatype="html">
+        <source>Type</source>
+        <target>Тип</target>
+        <note priority="1" from="description">Type field of public organization</note>
+        <note priority="1" from="meaning">Type field</note>
+      </trans-unit>
+      <trans-unit id="f19582bad2b682a1bdb0eb8c8a967b4ba50cfef0" datatype="html">
+        <source>EDRPOU</source>
+        <target>ЄДРПОУ</target>
+        <note priority="1" from="description">EDRPOU field of public organization</note>
+        <note priority="1" from="meaning">EDRPOU field</note>
+      </trans-unit>
+      <trans-unit id="2fefd2c21b10ab8ce2517da3c02eccce7195e03a" datatype="html">
+        <source>Address</source>
+        <target>Адреса</target>
+        <note priority="1" from="description">Address field of public organization</note>
+        <note priority="1" from="meaning">Address field</note>
+      </trans-unit>
+      <trans-unit id="70f9322951e2ce9aa204dab7bfda38beaaa34207" datatype="html">
+        <source>Phone</source>
+        <target>Телефон</target>
+        <note priority="1" from="description">Phone field of public organization</note>
+        <note priority="1" from="meaning">Phone field</note>
+      </trans-unit>
+      <trans-unit id="d2eef3d9b65fc3e531c86ca6fa10164866a14625" datatype="html">
+        <source>Founders</source>
+        <target>Засновники</target>
+        <note priority="1" from="description">Founders field of public organization</note>
+        <note priority="1" from="meaning">Founders field</note>
+      </trans-unit>
+      <trans-unit id="c53ed63a44510c697cd54d7c82fdf8419408f8e7" datatype="html">
+        <source>Leaders</source>
+        <target>Керівники</target>
+        <note priority="1" from="description">Leaders field of public organization</note>
+        <note priority="1" from="meaning">Leaders field</note>
+      </trans-unit>
+      <trans-unit id="7e18776705ebf5ad193db1987f6b4ca9b41c5f48" datatype="html">
+        <source>KVED</source>
+        <target>КВEД</target>
+        <note priority="1" from="description">KVED field of public organization</note>
+        <note priority="1" from="meaning">KVED field</note>
+      </trans-unit>
+      <trans-unit id="38b323b2d59be7c8023969ba31832d195f9a78e7" datatype="html">
+        <source>License</source>
+        <target>Ліцензія</target>
+        <note priority="1" from="description">License field of public organization</note>
+        <note priority="1" from="meaning">License field</note>
+      </trans-unit>
+      <trans-unit id="439b56bad78d571c7a2e3b4bcd7fc81cb4a0cba5" datatype="html">
+        <source>Register</source>
+        <target>Зареєструвати</target>
+        <note priority="1" from="description">Button of registering a new organization</note>
+        <note priority="1" from="meaning">Register button</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

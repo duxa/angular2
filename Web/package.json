@@ -65,7 +65,8 @@
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "webdriver-manager update",
     "webpack-dev-server": "webpack-dev-server",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "i18n": "ng-xi18n"
   },
   "dependencies": {
     "@angular/common": "2.4.6",

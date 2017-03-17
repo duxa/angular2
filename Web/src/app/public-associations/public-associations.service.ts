@@ -20,12 +20,12 @@ export class PublicAssociationsService {
   public getData(page?: number, itemsPerPage?: number): Observable<IAssociationServerResponse> {
     let params: URLSearchParams = new URLSearchParams();
 
-    if (page) {
-      params.set('page', page);
+    if (typeof page === 'number') {
+      params.set('page', (page).toString());
     }
 
-    if (itemsPerPage) {
-      params.set('itemsPerPage', itemsPerPage);
+    if (typeof page === 'number') {
+      params.set('itemsPerPage', (itemsPerPage).toString());
     }
 
     return this.http.get('/assets/mock-data/public-associations.json', { search: params })

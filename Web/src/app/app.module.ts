@@ -13,6 +13,7 @@ import { PublicAssociationsComponent } from './public-associations';
 import { NewAssociationComponent } from './public-associations/new-association.component';
 
 import { PublicAssociationsService } from './public-associations/public-associations.service';
+import { UserSessionService } from './user-session.service';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -30,6 +31,7 @@ import { PublicAssociationsService } from './public-associations/public-associat
   ],
   providers: [
     PublicAssociationsService,
+    UserSessionService,
     ENV_PROVIDERS
   ]
 })
