@@ -10,7 +10,9 @@ import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { PublicAssociationsComponent } from './public-associations';
-import { NewAssociationComponent } from './public-associations/new-association.component';
+import {
+  PublicAssociationDetailComponent
+} from './public-associations/public-association-detail.component';
 
 import { PublicAssociationsService } from './public-associations/public-associations.service';
 import { UserSessionService } from './user-session.service';
@@ -20,7 +22,7 @@ import { UserSessionService } from './user-session.service';
   declarations: [
     AppComponent,
     PublicAssociationsComponent,
-    NewAssociationComponent
+    PublicAssociationDetailComponent
   ],
   imports: [
     BrowserModule,

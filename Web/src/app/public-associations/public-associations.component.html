@@ -1,7 +1,7 @@
 <div>
   <h1 i18n="Title of register|The title of register of public organizations">The register of public organizations</h1>
   <p>
-    <a class="btn btn-primary" [routerLink]="['./add-new']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
+    <a class="btn btn-primary" [routerLink]="['./new-association']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
   </p>
   <table *ngIf="associations?.length > 0" class="table table-bordered table-striped">
     <thead>
@@ -21,7 +21,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let association of associations | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
-        <td>{{association.RegNum}}</td>
+        <td>
+          <a [routerLink]="['association', association.Id]">{{association.RegNum}}</a>
+        </td>
         <td>{{association.DateReg}}</td>
         <td>{{association.Name}}</td>
         <td>{{association.VudName}}</td>

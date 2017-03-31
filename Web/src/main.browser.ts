@@ -4,6 +4,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { decorateModuleRef } from './app/environment';
 import { bootloader } from '@angularclass/hmr';
+import { enableProdMode } from '@angular/core';
 
 import { getTranslationProviders } from './app/i18n-providers';
 /*
@@ -11,6 +12,11 @@ import { getTranslationProviders } from './app/i18n-providers';
  * our top level module that holds all of our components
  */
 import { AppModule } from './app';
+
+// Enable production mode unless running locally
+if (!/localhost/.test(document.location.host)) {
+  enableProdMode();
+}
 
 /*
  * Bootstrap our Angular app with a top level NgModule

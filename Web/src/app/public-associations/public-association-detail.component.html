@@ -1,0 +1,96 @@
+<h1 i18n="The new public organization|Title for the form of creation of new public organization"
+    *ngIf="!associationId">The new public organization</h1>
+
+<h1 *ngIf="associationId && association">{{association.Name}}</h1>
+
+<ng-container *ngIf="association">
+  <div class="form-group">
+    <label i18n="Name field|Name field of public organization">Name</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Name field|Name field of public organization"
+           placeholder="Name"
+           [(ngModel)]="association.Name" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="Type field|Type field of public organization">Type</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Type field|Type field of public organization"
+           placeholder="Type"
+           [(ngModel)]="association.VudName" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="EDRPOU field|EDRPOU field of public organization">EDRPOU</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="EDRPOU field|EDRPOU field of public organization"
+           placeholder="EDRPOU"
+           [(ngModel)]="association.Edrpou" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="Address field|Address field of public organization">Address</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Address field|Address field of public organization"
+           placeholder="Address"
+           [(ngModel)]="association.Adress" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="Phone field|Phone field of public organization">Phone</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Phone field|Phone field of public organization"
+           placeholder="Phone"
+           [(ngModel)]="association.Phone" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="Founders field|Founders field of public organization">Founders</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Founders field|Founders field of public organization"
+           placeholder="Founders"
+           [(ngModel)]="association.Zasnovn" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="Leaders field|Leaders field of public organization">Leaders</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="Leaders field|Leaders field of public organization"
+           placeholder="Leaders"
+           [(ngModel)]="association.Government" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="KVED field|KVED field of public organization">KVED</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="KVED field|KVED field of public organization"
+           placeholder="KVED"
+           [(ngModel)]="association.Kved" />
+  </div>
+
+  <div class="form-group">
+    <label i18n="License field|License field of public organization">License</label>
+    <input type="text"
+           class="form-control"
+           i18n-placeholder="License field|License field of public organization"
+           placeholder="License"
+           [(ngModel)]="association.License" />
+  </div>
+
+  <button class="btn btn-primary"
+          (click)="save()"
+          *ngIf="!associationId"
+          i18n="Register button|Button of registering a new organization">Register</button>
+  <button class="btn btn-primary"
+          (click)="save()"
+          *ngIf="associationId"
+          i18n="Update button|Update button">Update</button>
+</ng-container>

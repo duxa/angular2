@@ -2,14 +2,21 @@
  * Angular bootstraping
  */
 import { platformBrowser } from '@angular/platform-browser';
-import { decorateModuleRef } from './app/environment';
+import { enableProdMode } from '@angular/core';
 
+import { decorateModuleRef } from './app/environment';
 import { getTranslationProviders } from './app/i18n-providers';
+
 /*
  * App Module
  * our top level module that holds all of our components
  */
 import { AppModuleNgFactory } from '../compiled/src/app/app.module.ngfactory';
+
+// Enable production mode unless running locally
+if (!/localhost/.test(document.location.host)) {
+  enableProdMode();
+}
 
 /*
  * Bootstrap our Angular app with a top level NgModule

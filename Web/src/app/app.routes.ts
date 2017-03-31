@@ -1,9 +1,12 @@
 import { Routes } from '@angular/router';
 
 import { PublicAssociationsComponent } from './public-associations';
-import { NewAssociationComponent } from './public-associations/new-association.component';
+import {
+  PublicAssociationDetailComponent
+} from './public-associations/public-association-detail.component';
 
 export const ROUTES: Routes = [
   { path: '', component: PublicAssociationsComponent },
-  { path: 'add-new', component: NewAssociationComponent }
+  { path: 'new-association', component: PublicAssociationDetailComponent },
+  { path: 'association/:id', component: PublicAssociationDetailComponent }
 ];

@@ -168,6 +168,12 @@
         <note priority="1" from="description">Button of registering a new organization</note>
         <note priority="1" from="meaning">Register button</note>
       </trans-unit>
+      <trans-unit id="e83ce2cb5d98fb3b9427d3e4d47e99a75496cf17" datatype="html">
+        <source>Update</source>
+        <target>Оновити</target>
+        <note priority="1" from="description">Update button</note>
+        <note priority="1" from="meaning">Update button</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

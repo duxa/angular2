@@ -1,4 +1,5 @@
-export class Association {
+export class PublicAssociation {
+  public Id: string;
   public RegNum: number;
   public DateReg: Date;
   public Name: string;

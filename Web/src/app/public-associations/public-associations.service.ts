@@ -2,22 +2,27 @@ import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
-import { Association } from './association';
+import { PublicAssociation } from './public-association';
 
 interface IAssociationServerResponse {
-  Items: Association[];
+  Items: PublicAssociation[];
   TotalCount: number;
 }
 
 @Injectable()
 export class PublicAssociationsService {
+  private cachedAssociations: PublicAssociation[];
   constructor(
     private http: Http
   ) {}
 
-  public getData(page?: number, itemsPerPage?: number): Observable<IAssociationServerResponse> {
+  public getAssociations(
+    page?: number,
+    itemsPerPage?: number
+  ): Observable<IAssociationServerResponse> {
     let params: URLSearchParams = new URLSearchParams();
 
     if (typeof page === 'number') {
@@ -29,10 +34,28 @@ export class PublicAssociationsService {
     }
 
     return this.http.get('/assets/mock-data/public-associations.json', { search: params })
-               .map((res: Response) => res.json());
+               .map((res: Response) => {
+                 let result = res.json();
+                 this.cachedAssociations = result.Items;
+                 return result;
+               });
   }
 
-  public addNew(newAssociation: Association): Observable<any> {
-    return this.http.get('/assets/mock-data/add-new-public-association.json');
+  public getAssociation(id: string): Observable<PublicAssociation> {
+    let association = this.cachedAssociations && this.cachedAssociations.find((x) => x.Id === id);
+    return association
+      ? Observable.of<PublicAssociation>(association)
+      : this.http.get('/assets/mock-data/public-association.json?id=' + id)
+                 .map((res: Response) => res.json());
+  }
+
+  public add(newAssociation: PublicAssociation): Observable<PublicAssociation> {
+    return this.http.get('/assets/mock-data/add-association.json')
+                    .map((res: Response) => res.json());
+  }
+
+  public update(association: PublicAssociation): Observable<PublicAssociation> {
+    return this.http.get('/assets/mock-data/update-association.json')
+                    .map((res: Response) => res.json());
   }
 }
