@@ -108,6 +108,12 @@
         <note priority="1" from="description">Title for the form of creation of new public organization</note>
         <note priority="1" from="meaning">The new public organization</note>
       </trans-unit>
+      <trans-unit id="029533f99b6de501871d116d064d4464d670ddcb" datatype="html">
+        <source>Update public organization</source>
+        <target/>
+        <note priority="1" from="description">Title for the form of updation of public organization</note>
+        <note priority="1" from="meaning">Update public organization</note>
+      </trans-unit>
       <trans-unit id="8ccb3759537a68547f34b846e3076779cd86811d" datatype="html">
         <source>Name</source>
         <target/>
@@ -144,11 +150,26 @@
         <note priority="1" from="description">Founders field of public organization</note>
         <note priority="1" from="meaning">Founders field</note>
       </trans-unit>
+      <trans-unit id="019d4bd6a5690f0cfa0ecf346a4e6bf7f0d8debb" datatype="html">
+        <source>Remove</source>
+        <target/>
+        <note priority="1" from="description">Remove button</note>
+      </trans-unit>
+      <trans-unit id="4b3f8845727bdb57780066551c918ada8a738d27" datatype="html">
+        <source>Add founder</source>
+        <target/>
+        <note priority="1" from="description">Add founder button</note>
+      </trans-unit>
       <trans-unit id="c53ed63a44510c697cd54d7c82fdf8419408f8e7" datatype="html">
         <source>Leaders</source>
         <target/>
         <note priority="1" from="description">Leaders field of public organization</note>
         <note priority="1" from="meaning">Leaders field</note>
+      </trans-unit>
+      <trans-unit id="cbe8d4ece164dce6e7c36519492f4d53dd271568" datatype="html">
+        <source>Add leader</source>
+        <target/>
+        <note priority="1" from="description">Add leader button</note>
       </trans-unit>
       <trans-unit id="7e18776705ebf5ad193db1987f6b4ca9b41c5f48" datatype="html">
         <source>KVED</source>
@@ -162,17 +183,17 @@
         <note priority="1" from="description">License field of public organization</note>
         <note priority="1" from="meaning">License field</note>
       </trans-unit>
-      <trans-unit id="439b56bad78d571c7a2e3b4bcd7fc81cb4a0cba5" datatype="html">
-        <source>Register</source>
-        <target/>
-        <note priority="1" from="description">Button of registering a new organization</note>
-        <note priority="1" from="meaning">Register button</note>
-      </trans-unit>
       <trans-unit id="e83ce2cb5d98fb3b9427d3e4d47e99a75496cf17" datatype="html">
         <source>Update</source>
         <target/>
         <note priority="1" from="description">Update button</note>
         <note priority="1" from="meaning">Update button</note>
+      </trans-unit>
+      <trans-unit id="439b56bad78d571c7a2e3b4bcd7fc81cb4a0cba5" datatype="html">
+        <source>Register</source>
+        <target/>
+        <note priority="1" from="description">Button of registering a new organization</note>
+        <note priority="1" from="meaning">Register button</note>
       </trans-unit>
     </body>
   </file>

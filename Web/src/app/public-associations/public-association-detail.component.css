@@ -1,0 +1,8 @@
+.dynamic-control {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.dynamic-control .btn {
+  margin-left: 10px;
+}

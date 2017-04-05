@@ -49,13 +49,15 @@ export class PublicAssociationsService {
                  .map((res: Response) => res.json());
   }
 
-  public add(newAssociation: PublicAssociation): Observable<PublicAssociation> {
-    return this.http.get('/assets/mock-data/add-association.json')
+  public create(newAssociation: PublicAssociation): Observable<PublicAssociation> {
+    // replace the GET method with POST when server-side will be implemented
+    return this.http.get('/assets/mock-data/create-association.json', newAssociation)
                     .map((res: Response) => res.json());
   }
 
   public update(association: PublicAssociation): Observable<PublicAssociation> {
-    return this.http.get('/assets/mock-data/update-association.json')
+    // replace the GET method with POST when server-side will be implemented
+    return this.http.get('/assets/mock-data/update-association.json', association)
                     .map((res: Response) => res.json());
   }
 }

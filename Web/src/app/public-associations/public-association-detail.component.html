@@ -1,16 +1,17 @@
 <h1 i18n="The new public organization|Title for the form of creation of new public organization"
     *ngIf="!associationId">The new public organization</h1>
 
-<h1 *ngIf="associationId && association">{{association.Name}}</h1>
+<h1 i18n="Update public organization|Title for the form of updation of public organization"
+    *ngIf="associationId">Update public organization</h1>
 
-<ng-container *ngIf="association">
+<form [formGroup]="associationForm" (ngSubmit)="onSubmit()" novalidate>
   <div class="form-group">
     <label i18n="Name field|Name field of public organization">Name</label>
     <input type="text"
            class="form-control"
            i18n-placeholder="Name field|Name field of public organization"
            placeholder="Name"
-           [(ngModel)]="association.Name" />
+           formControlName="Name" />
   </div>
 
   <div class="form-group">
@@ -19,7 +20,7 @@
            class="form-control"
            i18n-placeholder="Type field|Type field of public organization"
            placeholder="Type"
-           [(ngModel)]="association.VudName" />
+           formControlName="VudName" />
   </div>
 
   <div class="form-group">
@@ -28,7 +29,7 @@
            class="form-control"
            i18n-placeholder="EDRPOU field|EDRPOU field of public organization"
            placeholder="EDRPOU"
-           [(ngModel)]="association.Edrpou" />
+           formControlName="Edrpou" />
   </div>
 
   <div class="form-group">
@@ -37,7 +38,7 @@
            class="form-control"
            i18n-placeholder="Address field|Address field of public organization"
            placeholder="Address"
-           [(ngModel)]="association.Adress" />
+           formControlName="Adress" />
   </div>
 
   <div class="form-group">
@@ -46,25 +47,47 @@
            class="form-control"
            i18n-placeholder="Phone field|Phone field of public organization"
            placeholder="Phone"
-           [(ngModel)]="association.Phone" />
+           formControlName="Phone" />
   </div>
 
-  <div class="form-group">
+  <div class="form-group dynamic-controls-list" formArrayName="Zasnovn">
     <label i18n="Founders field|Founders field of public organization">Founders</label>
-    <input type="text"
-           class="form-control"
-           i18n-placeholder="Founders field|Founders field of public organization"
-           placeholder="Founders"
-           [(ngModel)]="association.Zasnovn" />
+    <div *ngFor="let founder of associationForm.get('Zasnovn').controls; let i=index" class="dynamic-control">
+      <input type="text"
+             class="form-control"
+             i18n-placeholder="Founders field|Founders field of public organization"
+             placeholder="Founders"
+             [formControlName]="i" />
+      <button type="button"
+              (click)="removeFounder(i)"
+              [disabled]="associationForm.get('Zasnovn').controls.length <= 1"
+              i18n="Remove button"
+              class="btn">Remove</button>
+    </div>
+    <button type="button"
+            (click)="addFounder()"
+            i18n="Add founder button"
+            class="btn">Add founder</button>
   </div>
 
-  <div class="form-group">
+  <div class="form-group dynamic-controls-list" formArrayName="Government">
     <label i18n="Leaders field|Leaders field of public organization">Leaders</label>
-    <input type="text"
-           class="form-control"
-           i18n-placeholder="Leaders field|Leaders field of public organization"
-           placeholder="Leaders"
-           [(ngModel)]="association.Government" />
+    <div *ngFor="let leader of associationForm.get('Government').controls; let i=index"class="dynamic-control">
+      <input type="text"
+            class="form-control"
+            i18n-placeholder="Leaders field|Leaders field of public organization"
+            placeholder="Leaders"
+            [formControlName]="i" />
+      <button type="button"
+              (click)="removeLeader(i)"
+              [disabled]="associationForm.get('Government').controls.length <= 1"
+              i18n="Remove button"
+              class="btn">Remove</button>
+    </div>
+    <button type="button"
+            (click)="addLeader()"
+            i18n="Add leader button"
+            class="btn">Add leader</button>
   </div>
 
   <div class="form-group">
@@ -73,7 +96,7 @@
            class="form-control"
            i18n-placeholder="KVED field|KVED field of public organization"
            placeholder="KVED"
-           [(ngModel)]="association.Kved" />
+           formControlName="Kved" />
   </div>
 
   <div class="form-group">
@@ -82,15 +105,11 @@
            class="form-control"
            i18n-placeholder="License field|License field of public organization"
            placeholder="License"
-           [(ngModel)]="association.License" />
+           formControlName="License" />
   </div>
 
-  <button class="btn btn-primary"
-          (click)="save()"
-          *ngIf="!associationId"
-          i18n="Register button|Button of registering a new organization">Register</button>
-  <button class="btn btn-primary"
-          (click)="save()"
-          *ngIf="associationId"
-          i18n="Update button|Update button">Update</button>
-</ng-container>
+  <button class="btn btn-primary" type="submit" [disabled]="associationForm.pristine || associationForm.invalid">
+    <ng-container *ngIf="associationId" i18n="Update button|Update button">Update</ng-container>
+    <ng-container *ngIf="!associationId" i18n="Register button|Button of registering a new organization">Register</ng-container>
+  </button>
+</form>

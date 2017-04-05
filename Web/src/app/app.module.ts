@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
@@ -26,7 +26,11 @@ import { UserSessionService } from './user-session.service';
   ],
   imports: [
     BrowserModule,
+
+    // #todo - require refactoring existing code to get rid of FormsModule
     FormsModule,
+    ReactiveFormsModule,
+
     HttpModule,
     Ng2PaginationModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })

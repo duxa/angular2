@@ -19,7 +19,7 @@ const supportedLocales = [
       width: 100%;
     }
     main {
-      padding-top: 51px;
+      padding: 60px 15px 15px;
     }
   `]
 })
