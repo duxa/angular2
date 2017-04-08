@@ -183,17 +183,17 @@
       </trans-unit>
       <trans-unit id="019d4bd6a5690f0cfa0ecf346a4e6bf7f0d8debb" datatype="html">
         <source>Remove</source>
-        <target>Видалити</target>
+        <target>&#x412;&#x438;&#x434;&#x430;&#x43B;&#x438;&#x442;&#x438;</target>
         <note priority="1" from="description">Remove button</note>
       </trans-unit>
       <trans-unit id="4b3f8845727bdb57780066551c918ada8a738d27" datatype="html">
         <source>Add founder</source>
-        <target>Додати засновника</target>
+        <target>&#x414;&#x43E;&#x434;&#x430;&#x442;&#x438; &#x437;&#x430;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x438;&#x43A;&#x430;</target>
         <note priority="1" from="description">Add founder button</note>
       </trans-unit>
       <trans-unit id="cbe8d4ece164dce6e7c36519492f4d53dd271568" datatype="html">
         <source>Add leader</source>
-        <target>Додати керівника</target>
+        <target>&#x414;&#x43E;&#x434;&#x430;&#x442;&#x438; &#x43A;&#x435;&#x440;&#x456;&#x432;&#x43D;&#x438;&#x43A;&#x430;</target>
         <note priority="1" from="description">Add leader button</note>
       </trans-unit>
     </body>

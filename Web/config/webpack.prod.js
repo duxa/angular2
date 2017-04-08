@@ -103,17 +103,16 @@ module.exports = function (env) {
         },
 
         /*
-         * Extract and compile SCSS files from .src/styles directory to external CSS file
+         * Extract and compile LESS files from .src/styles directory to external CSS file
          */
         {
-          test: /\.scss$/,
+          test: /\.less$/,
           loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: 'css-loader!sass-loader'
+            use: 'css-loader!less-loader'
           }),
           include: [helpers.root('src', 'styles')]
-        },
-
+        }
       ]
 
     },

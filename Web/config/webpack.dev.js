@@ -117,16 +117,15 @@ module.exports = function (options) {
         },
 
         /*
-         * sass loader support for *.scss files (styles directory only)
-         * Loads external sass styles into the DOM, supports HMR
+         * less loader support for *.less files (styles directory only)
+         * Loads external less styles into the DOM, supports HMR
          *
          */
         {
-          test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          test: /\.less$/,
+          use: ['style-loader', 'css-loader', 'less-loader'],
           include: [helpers.root('src', 'styles')]
-        },
-
+        }
       ]
 
     },

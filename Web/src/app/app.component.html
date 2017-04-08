@@ -3,10 +3,16 @@
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
       <a routerLink="" i18n="Homepage link|Link to the homepage from main menu">Home</a>
     </li>
+    <li routerLinkActive="active">
+      <a routerLink="judgments" i18n="Link to the judgments register">Judgments</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="notaries" i18n="Link to the notaries register">Notaries</a>
+    </li>
   </ul>
   <div class="languages pull-right">
     <label i18n="Other languages label|Label for dropdown with supported languages">Other languages:</label>
-    <select [(ngModel)]="userLocale" (ngModelChange)="setUserLocale($event)">
+    <select [formControl]="userLocale">
       <option *ngFor="let locale of locales" [value]="locale.id">{{locale.name}}</option>
     </select>
   </div>

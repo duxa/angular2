@@ -1,26 +1,15 @@
-/*
- * Angular bootstraping
- */
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { decorateModuleRef } from './app/environment';
-import { bootloader } from '@angularclass/hmr';
 import { enableProdMode } from '@angular/core';
 
 import { getTranslationProviders } from './app/i18n-providers';
-/*
- * App Module
- * our top level module that holds all of our components
- */
+import { decorateModuleRef } from './app/environment';
 import { AppModule } from './app';
 
 // Enable production mode unless running locally
-if (!/localhost/.test(document.location.host)) {
-  enableProdMode();
-}
+// if (!/localhost/.test(document.location.host)) {
+  // enableProdMode();
+// }
 
-/*
- * Bootstrap our Angular app with a top level NgModule
- */
 export function main(): Promise<any> {
   return getTranslationProviders().then((providers) => {
     const options = { providers };
@@ -32,6 +21,12 @@ export function main(): Promise<any> {
   });
 }
 
-// needed for hmr
-// in prod this is replace for document ready
+function bootloader(main: any) {
+  if (document.readyState === 'complete') {
+    main();
+  } else {
+    document.addEventListener('DOMContentLoaded', main);
+  }
+}
+
 bootloader(main);

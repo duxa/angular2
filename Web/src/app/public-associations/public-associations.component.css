@@ -1,3 +1,6 @@
+.associations-pagination >>> .ng2-pagination {
+    padding-left: 0;
+}
 .associations-pagination >>> .ng2-pagination a {
   cursor: pointer;
   text-decoration: none;

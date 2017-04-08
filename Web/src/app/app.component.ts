@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { UserSessionService } from './user-session.service';
 
@@ -10,26 +11,18 @@ const supportedLocales = [
 
 @Component({
   selector: 'app',
-  templateUrl: './app.component.html',
-  styles: [`
-    .navbar {
-      display: flex;
-    }
-    .nav {
-      width: 100%;
-    }
-    main {
-      padding: 60px 15px 15px;
-    }
-  `]
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public userLocale: string;
+  public userLocale: FormControl = new FormControl();
   public locales = supportedLocales;
   constructor(
     private userSessionService: UserSessionService
   ) {
-    this.userLocale = UserSessionService.getUserLocale();
+    this.userLocale.setValue(UserSessionService.getUserLocale());
+    this.userLocale.valueChanges.forEach(
+      (value: string) => this.setUserLocale(value)
+    );
   }
 
   public setUserLocale(locale: string) {

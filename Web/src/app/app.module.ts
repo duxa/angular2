@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { Ng2PaginationModule } from 'ng2-pagination';
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { PublicAssociationsComponent } from './public-associations';
@@ -17,6 +17,8 @@ import {
 import { PublicAssociationsService } from './public-associations/public-associations.service';
 import { UserSessionService } from './user-session.service';
 
+import '../styles/main.less';
+
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
@@ -26,14 +28,10 @@ import { UserSessionService } from './user-session.service';
   ],
   imports: [
     BrowserModule,
-
-    // #todo - require refactoring existing code to get rid of FormsModule
-    FormsModule,
     ReactiveFormsModule,
-
     HttpModule,
     Ng2PaginationModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
     PublicAssociationsService,
