@@ -31,28 +31,28 @@ export class PublicAssociationDetailComponent {
 
   // #region Public Methods
   public onSubmit() {
-    let submitMethod = this.associationId ? 'update' : 'create';
+    const submitMethod = this.associationId ? 'update' : 'create';
     this.publicAssociationsService[submitMethod](this.associationForm.value).subscribe(() => {
       this.router.navigate(['']);
     });
   }
 
   public addFounder() {
-    (<FormArray> this.associationForm.get('Zasnovn')).push(
+    (this.associationForm.get('Zasnovn') as FormArray).push(
       this.formBuilder.control('', Validators.required)
     );
   }
   public removeFounder(index: number) {
-    (<FormArray> this.associationForm.get('Zasnovn')).removeAt(index);
+    (this.associationForm.get('Zasnovn') as FormArray).removeAt(index);
   }
 
   public addLeader() {
-    (<FormArray> this.associationForm.get('Government')).push(
+    (this.associationForm.get('Government') as FormArray).push(
       this.formBuilder.control('', Validators.required)
     );
   }
   public removeLeader(index: number) {
-    (<FormArray> this.associationForm.get('Government')).removeAt(index);
+    (this.associationForm.get('Government') as FormArray).removeAt(index);
   }
   // #endregion Public Methods
 

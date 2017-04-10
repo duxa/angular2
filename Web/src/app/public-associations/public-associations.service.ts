@@ -23,7 +23,7 @@ export class PublicAssociationsService {
     page?: number,
     itemsPerPage?: number
   ): Observable<IAssociationServerResponse> {
-    let params: URLSearchParams = new URLSearchParams();
+    const params: URLSearchParams = new URLSearchParams();
 
     if (typeof page === 'number') {
       params.set('page', (page).toString());
@@ -35,14 +35,14 @@ export class PublicAssociationsService {
 
     return this.http.get('/assets/mock-data/public-associations.json', { search: params })
                .map((res: Response) => {
-                 let result = res.json();
+                 const result = res.json();
                  this.cachedAssociations = result.Items;
                  return result;
                });
   }
 
   public getAssociation(id: string): Observable<PublicAssociation> {
-    let association = this.cachedAssociations && this.cachedAssociations.find((x) => x.Id === id);
+    const association = this.cachedAssociations && this.cachedAssociations.find((x) => x.Id === id);
     return association
       ? Observable.of<PublicAssociation>(association)
       : this.http.get('/assets/mock-data/public-association.json?id=' + id)

@@ -3,7 +3,8 @@
     "tslint:recommended"
   ],
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    // #todo - need to be uncommented
+    // "node_modules/codelyzer"
   ],
   "rules": {
     // Custom

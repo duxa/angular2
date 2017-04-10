@@ -2,12 +2,12 @@ import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
 
 import { UserSessionService } from './user-session.service';
 
-export function getTranslationProviders(): Promise<Object[]> {
+export function getTranslationProviders(): Promise<object[]> {
   // Get the locale id from the global
-  let locale = UserSessionService.getUserLocale();
+  const locale = UserSessionService.getUserLocale();
 
   // return no providers if fail to get translation file for locale
-  const noProviders: Object[] = [];
+  const noProviders: object[] = [];
 
   // No locale or U.S. English: no translation providers
   if (!locale || locale === 'en-US') {
@@ -27,7 +27,7 @@ export function getTranslationProviders(): Promise<Object[]> {
 
 function getTranslations(file: string) {
   return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', (evt: any) => {
       resolve(evt.target.response);
