@@ -1,7 +1,11 @@
 <div>
   <h1 i18n="Title of register|The title of register of public organizations">The register of public organizations</h1>
-  <p>
-    <a class="btn btn-primary" [routerLink]="['./new-association']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
+  <p class="clearfix">
+    <label class="pull-left">
+      <span i18n>Search an associations:</span>
+      <input #term (keyup)="search(term.value)"/>
+    </label>
+    <a class="btn btn-primary pull-right" [routerLink]="['./new-association']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
   </p>
   <table *ngIf="associations?.length > 0" class="table table-bordered table-striped">
     <thead>

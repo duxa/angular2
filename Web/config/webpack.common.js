@@ -26,7 +26,7 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Реєстр громадських організацій',
+  title: 'The register of public organizations',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -57,9 +57,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'polyfills': './src/polyfills.ts',
+      'main':      AOT ? './src/main.aot.ts' :
+                  './src/main.ts'
 
     },
 

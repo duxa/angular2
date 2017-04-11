@@ -13,11 +13,6 @@ import { getTranslationProviders } from './app/i18n-providers';
  */
 import { AppModuleNgFactory } from '../compiled/src/app/app.module.ngfactory';
 
-// Enable production mode unless running locally
-if (!/localhost/.test(document.location.host)) {
-  enableProdMode();
-}
-
 /*
  * Bootstrap our Angular app with a top level NgModule
  */
