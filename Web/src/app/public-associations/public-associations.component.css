@@ -1,3 +1,7 @@
+label input {
+  font-weight: normal;
+}
+
 .associations-pagination >>> .ng2-pagination {
     padding-left: 0;
 }

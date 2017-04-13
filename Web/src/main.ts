@@ -5,11 +5,6 @@ import { getTranslationProviders } from './app/i18n-providers';
 import { decorateModuleRef } from './app/environment';
 import { AppModule } from './app';
 
-// Enable production mode unless running locally
-// if (!/localhost/.test(document.location.host)) {
-  // enableProdMode();
-// }
-
 export function main(): Promise<any> {
   return getTranslationProviders().then((providers) => {
     const options = { providers };

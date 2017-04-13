@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
+
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { PublicAssociationsService } from './public-associations.service';
 import { PublicAssociation } from './public-association';
@@ -31,8 +33,7 @@ export class PublicAssociationDetailComponent {
 
   // #region Public Methods
   public onSubmit() {
-    const submitMethod = this.associationId ? 'update' : 'create';
-    this.publicAssociationsService[submitMethod](this.associationForm.value).subscribe(() => {
+    this.publicAssociationsService.update(this.associationForm.value).subscribe(() => {
       this.router.navigate(['']);
     });
   }
@@ -59,7 +60,7 @@ export class PublicAssociationDetailComponent {
   // #region Private Methods
   private getAssociation(id: string): Observable<PublicAssociation> {
     return id
-      ? this.publicAssociationsService.getAssociation(id)
+      ? this.publicAssociationsService.getById(id)
       : Observable.of<PublicAssociation>(new PublicAssociation());
   }
 
