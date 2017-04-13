@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -12,16 +11,16 @@ import { PublicAssociation } from './public-association';
 @Component({
   selector: 'public-associations',
   templateUrl: './public-associations.component.html',
-  styleUrls: [ './public-associations.component.css' ]
+  styleUrls: [ './public-associations.component.less' ]
 })
 export class PublicAssociationsComponent implements OnInit {
   public associations: PublicAssociation[];
   public itemsPerPage: number = 10;
+  public totalCount: number = 0;
   public currentPage: number;
-  public totalCount: number;
-  public loading: boolean;
 
-  private searchAssociationsStream = new Subject<string>();
+  private searchStream = new Subject<string>();
+  private searchTerm: string;
 
   constructor(
     private publicAssociationsService: PublicAssociationsService
@@ -30,34 +29,41 @@ export class PublicAssociationsComponent implements OnInit {
   public ngOnInit() {
     this.getPage(1);
 
-    this.searchAssociationsStream
+    this.searchStream
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap((term: string) => this.getAssociations(1, term))
-      .subscribe(); // subscribe is required because this Observable is "cold"
+      .switchMap((term: string) => {
+        this.searchTerm = term;
+        return this.getAssociations(1);
+      })
+      .subscribe((dto) => {
+        this.extractData(dto);
+        this.currentPage = 1;
+      });
   }
 
   public getPage(page: number) {
-    this.getAssociations(page);
+    this.getAssociations(page)
+        .subscribe((dto) => {
+          this.extractData(dto);
+          this.currentPage = page;
+        });
   }
 
-  private search(term: string) {
-    this.searchAssociationsStream.next(term);
+  public search(term: string) {
+    this.searchStream.next(term);
   }
 
-  private getAssociations(page: number, search?: string) {
-    this.loading = true;
-
-    const itemsPerPage = this.itemsPerPage;
-    const request = this.publicAssociationsService.get({page, itemsPerPage, search});
-
-    request.subscribe((dto) => {
+  private extractData(dto) {
       this.associations = dto.Items;
       this.totalCount = dto.TotalCount;
-      this.currentPage = page;
-      this.loading = false;
-    });
+  }
 
-    return request;
+  private getAssociations(page: number) {
+    return this.publicAssociationsService.get({
+      page,
+      itemsPerPage: this.itemsPerPage,
+      search: this.searchTerm
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -13,10 +13,7 @@ interface IAssociationServerResponse {
 
 @Injectable()
 export class PublicAssociationsService {
-  // mock url
-  private publicAssociationsUrl: string = '/assets/mock-data/public-associations.json';
-  // RESTful api url
-  // private publicAssociationsUrl: string = '/public-associations/';
+  private publicAssociationsUrl: string = 'api/public-associations/';
 
   constructor(private http: Http) {}
 
@@ -25,20 +22,21 @@ export class PublicAssociationsService {
   }
 
   public getById(id: string): Observable<PublicAssociation> {
-    // RESTful
-    // return this.getData(this.publicAssociationsUrl + id);
-
-    // mock
-    return this.http
-      .get(this.publicAssociationsUrl)
-      .map((res: Response) => this.extractData(res).Items.find((x) => x.Id === id));
+    return this.getData(this.publicAssociationsUrl + id);
   }
 
   public update(association: PublicAssociation): Observable<PublicAssociation> {
-    const method = association.Id
-      ? 'put' // update existing association
-      : 'post'; // create new association
-    return this.http[method](this.publicAssociationsUrl, association)
+    let method = 'post'; // create new association
+    let url = this.publicAssociationsUrl;
+
+    // if association has defined "Id" property
+    // it means that it already exist and we should to update it
+    if (association.Id) {
+      method = 'put';
+      url += association.Id;
+    }
+
+    return this.http[method](url, association)
                .map(this.extractData);
   }
 
@@ -50,6 +48,11 @@ export class PublicAssociationsService {
 
   private extractData(res: Response) {
     const body = res.json();
-    return body.data || body;
+    let result = body.data || body;
+    if (Array.isArray(result) && !('Items' in result && 'TotalCount' in result)) {
+      (<any> result).TotalCount = result.length;
+      (<any> result).Items = result;
+    }
+    return result;
   }
 }

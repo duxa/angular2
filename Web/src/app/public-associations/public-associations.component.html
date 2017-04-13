@@ -1,5 +1,5 @@
 <div>
-  <h1 i18n="Title of register|The title of register of public organizations">The register of public organizations</h1>
+  <h1 i18n="Title of register|The title of register of public organizations" document-title>The register of public organizations</h1>
   <p class="clearfix">
     <label class="pull-left">
       <span i18n>Search an associations:</span>
@@ -42,6 +42,7 @@
     </tbody>
   </table>
   <pagination-controls class="associations-pagination"
+                       [hidden]="associations?.length === 0"
                        (pageChange)="getPage($event)"
                        autoHide="true"
                        i18n-previousLabel="Previous"

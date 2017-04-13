@@ -10,8 +10,8 @@ import { PublicAssociation } from './public-association';
 
 @Component({
   selector: 'public-association-detail',
-  styleUrls: [ './public-association-detail.component.css' ],
-  templateUrl: './public-association-detail.component.html'
+  templateUrl: './public-association-detail.component.html',
+  styleUrls: [ './public-association-detail.component.less' ]
 })
 export class PublicAssociationDetailComponent {
   public associationId: string;
