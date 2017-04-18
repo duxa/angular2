@@ -10,15 +10,17 @@
       <a routerLink="notaries" i18n="Link to the notaries register">Notaries</a>
     </li>
     <li routerLinkActive="active">
-      <a routerLink="gantt-chart" i18n="Link to the gantt chart">Gantt chart</a>
+      <a routerLink="gantt-chart">Gantt chart</a>
     </li>
   </ul>
-  <div class="languages pull-right">
-    <label i18n="Other languages label|Label for dropdown with supported languages">Other languages:</label>
-    <select [formControl]="userLocale">
-      <option *ngFor="let locale of locales" [value]="locale.id">{{locale.name}}</option>
-    </select>
-  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <label i18n="Other languages label|Label for dropdown with supported languages">Other languages:</label>
+      <select [formControl]="userLocale">
+        <option *ngFor="let locale of locales" [value]="locale.id">{{locale.name}}</option>
+      </select>
+    </li>
+  </ul>
 </nav>
 
 <main class="page">

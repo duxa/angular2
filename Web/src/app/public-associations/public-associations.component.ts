@@ -55,7 +55,7 @@ export class PublicAssociationsComponent implements OnInit {
   }
 
   private extractData(dto) {
-      this.associations = dto.Items;
+      this.associations = dto;
       this.totalCount = dto.TotalCount;
   }
 
@@ -63,7 +63,7 @@ export class PublicAssociationsComponent implements OnInit {
     return this.publicAssociationsService.get({
       page,
       itemsPerPage: this.itemsPerPage,
-      search: this.searchTerm
+      Name: this.searchTerm
     });
   }
 }

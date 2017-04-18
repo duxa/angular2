@@ -1,1 +1,1 @@
-export * from './judgments.module';
+export * from './judgments.component';

@@ -25,7 +25,7 @@ export class AppComponent {
     );
   }
 
-  public setUserLocale(locale: string) {
+  private setUserLocale(locale: string) {
     this.userSessionService.setUserLocale(locale);
     location.reload();
   }

@@ -1,1 +1,1 @@
-export * from './notaries.module';
+export * from './notaries.component';

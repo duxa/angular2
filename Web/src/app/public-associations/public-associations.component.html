@@ -1,12 +1,12 @@
 <div>
   <h1 i18n="Title of register|The title of register of public organizations" document-title>The register of public organizations</h1>
-  <p class="clearfix">
-    <label class="pull-left">
-      <span i18n>Search an associations:</span>
-      <input #term (keyup)="search(term.value)"/>
-    </label>
+  <div class="form-inline clearfix">
+    <div class="form-group pull-left">
+      <label for="searchAssociationsTerm" i18n>Search an associations:</label>
+      <input id="searchAssociationsTerm" type="text" class="form-control" #term (keyup)="search(term.value)"/>
+    </div>
     <a class="btn btn-primary pull-right" [routerLink]="['./new-association']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
-  </p>
+  </div>
   <table *ngIf="associations?.length > 0" class="table table-bordered table-striped">
     <thead>
       <tr>

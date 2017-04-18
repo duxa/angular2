@@ -6,18 +6,13 @@ import 'rxjs/add/operator/map';
 
 import { PublicAssociation } from './public-association';
 
-interface IAssociationServerResponse {
-  Items: PublicAssociation[];
-  TotalCount: number;
-}
-
 @Injectable()
 export class PublicAssociationsService {
   private publicAssociationsUrl: string = 'api/public-associations/';
 
   constructor(private http: Http) {}
 
-  public get(params?: any): Observable<IAssociationServerResponse> {
+  public get(params?: any): Observable<PublicAssociation[]> {
     return this.getData(this.publicAssociationsUrl, params);
   }
 
@@ -26,17 +21,8 @@ export class PublicAssociationsService {
   }
 
   public update(association: PublicAssociation): Observable<PublicAssociation> {
-    let method = 'post'; // create new association
-    let url = this.publicAssociationsUrl;
-
-    // if association has defined "Id" property
-    // it means that it already exist and we should to update it
-    if (association.Id) {
-      method = 'put';
-      url += association.Id;
-    }
-
-    return this.http[method](url, association)
+    return this.http
+               .post(this.publicAssociationsUrl, association)
                .map(this.extractData);
   }
 
@@ -48,11 +34,13 @@ export class PublicAssociationsService {
 
   private extractData(res: Response) {
     const body = res.json();
-    let result = body.data || body;
-    if (Array.isArray(result) && !('Items' in result && 'TotalCount' in result)) {
-      (<any> result).TotalCount = result.length;
-      (<any> result).Items = result;
+    const totalCount = res.headers.get('X-Total-Count');
+    let result = (body && body.data) || body;
+
+    if (totalCount) {
+      result.TotalCount = totalCount;
     }
+
     return result;
   }
 }

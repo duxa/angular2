@@ -26,7 +26,7 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: '',
+  title: 'The register of public organizations',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };

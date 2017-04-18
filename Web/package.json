@@ -86,7 +86,7 @@
     "@types/webpack": "^2.2.14",
     "@types/angular": "^1.6.14",
     "@angular/compiler-cli": "~4.0.1",
-    "ng2-pagination": "^2.0.1",
+    "ngx-pagination": "^3.0.0",
     "bootstrap": "^3.3.7",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",

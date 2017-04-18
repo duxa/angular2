@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2"
+<xliff version="1.2" 
   xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
@@ -208,14 +208,18 @@
       </trans-unit>
       <trans-unit id="99c81eb2801e566d70ac0a08bac73783ca59fa50" datatype="html">
         <source>Unified State Register of Judgments</source>
-        <target>Єдиний державний реєстр судових рішень</target>
+        <target>&#x404;&#x434;&#x438;&#x43D;&#x438;&#x439; &#x434;&#x435;&#x440;&#x436;&#x430;&#x432;&#x43D;&#x438;&#x439; &#x440;&#x435;&#x454;&#x441;&#x442;&#x440; &#x441;&#x443;&#x434;&#x43E;&#x432;&#x438;&#x445; &#x440;&#x456;&#x448;&#x435;&#x43D;&#x44C;</target>
         <note priority="1" from="description">Unified State Register of Judgments</note>
       </trans-unit>
       <trans-unit id="fecf4bef0efce685e5a852274f432ab94798346f" datatype="html">
         <source>Unified Register of Notaries</source>
-        <target>Єдиний реєстр нотаріусів</target>
+        <target>&#x404;&#x434;&#x438;&#x43D;&#x438;&#x439; &#x440;&#x435;&#x454;&#x441;&#x442;&#x440; &#x43D;&#x43E;&#x442;&#x430;&#x440;&#x456;&#x443;&#x441;&#x456;&#x432;</target>
         <note priority="1" from="description">Unified Register of Notaries</note>
+      </trans-unit>
+      <trans-unit id="9979a830fd0e0db6f5e553b970fb15344c8f2fe8" datatype="html">
+        <source>Search an associations:</source>
+        <target>Пошук асоціацій:</target>
       </trans-unit>
     </body>
   </file>
-</xliff>
+</xliff>

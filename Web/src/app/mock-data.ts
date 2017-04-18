@@ -1,12 +1,33 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { ResponseOptions } from '@angular/http';
 
-export class PublicAssociationsData implements InMemoryDbService {
+import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
+
+const itemsPerPage = 10;
+
+export class MockData implements InMemoryDbService {
+  // responseInterceptor required to add 'X-Total-Count' header
+  // to follow RESTful API pagination best practices
+  public responseInterceptor(res: ResponseOptions, ri: RequestInfo) {
+    const body: any = res.body;
+
+    if (body && Array.isArray(body.data)) {
+      res.headers.append('X-Total-Count', body.data.length);
+      let page = ri.query.paramsMap.get('page');
+
+      if (Array.isArray(page)) {
+        let startIndex = (parseInt(page[0], 10) - 1) * itemsPerPage;
+        body.data = body.data.slice(startIndex, startIndex + itemsPerPage);
+      }
+    }
+
+    return res;
+  }
+
   public createDb() {
     let items: any = [];
     let curId = 1;
     let db = {};
 
-    const itemsPerPage = 10;
     const mockData = [
       {
         DateReg: '3/31/1993',
@@ -78,8 +99,7 @@ export class PublicAssociationsData implements InMemoryDbService {
       newEl.Id = curId + '';
       newEl.RegNum = newEl.Id;
 
-      // properties required for pagination and search functionality
-      newEl.search = newEl.Name;
+      // properties required for pagination and update functionality
       newEl.id = newEl.Id;
       newEl.itemsPerPage = itemsPerPage;
       newEl.page = 1234567890;

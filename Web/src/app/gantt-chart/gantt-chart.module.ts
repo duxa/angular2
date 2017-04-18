@@ -7,6 +7,8 @@ import { GanttChartComponent } from './gantt-chart.component';
 import { GanttChartHeaderComponent } from './gantt-chart-header';
 import { GanttChartBodyComponent } from './gantt-chart-body';
 
+import { CalendarService } from './services';
+
 export const routes: Routes = [
     { path: '', component: GanttChartComponent, pathMatch: 'full' }
 ];
@@ -21,6 +23,9 @@ export const routes: Routes = [
     GanttChartComponent,
     GanttChartHeaderComponent,
     GanttChartBodyComponent
+  ],
+  providers: [
+    CalendarService
   ]
 })
 export default class GanttChartModule {

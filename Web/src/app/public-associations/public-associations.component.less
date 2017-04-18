@@ -1,12 +1,18 @@
-label input {
-  font-weight: normal;
+@import '~bootstrap/less/variables.less';
+
+.table {
+  margin-top: 20px;
 }
 
-.associations-pagination /deep/ .ng2-pagination {
+.associations-pagination /deep/ .ngx-pagination {
   padding-left: 0;
 
   a {
     cursor: pointer;
     text-decoration: none;
+  }
+
+  .current {
+    background: @brand-primary;
   }
 }
