@@ -4,7 +4,7 @@ import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 
 const itemsPerPage = 10;
 
-export class MockData implements InMemoryDbService {
+export class PublicAssociationsData implements InMemoryDbService {
   // responseInterceptor required to add 'X-Total-Count' header
   // to follow RESTful API pagination best practices
   public responseInterceptor(res: ResponseOptions, ri: RequestInfo) {
@@ -30,7 +30,7 @@ export class MockData implements InMemoryDbService {
 
     const mockData = [
       {
-        DateReg: '3/31/1993',
+        DateReg: new Date('1993/3/31').getTime(),
         Name: 'Обласне товариство рятування на воді',
         VudName: 'Громадська організація',
         Edrpou: '',
@@ -50,7 +50,7 @@ export class MockData implements InMemoryDbService {
         License: 32
       },
       {
-        DateReg: '12/01/2016',
+        DateReg: new Date('2016/12/1').getTime(),
         Name: 'ВСЕУКРАЇНСЬКА ГРОМАДСЬКА ОРГАНІЗАЦІЯ \'СПІЛКА ОНКОУРОЛОГІВ УКРАЇНИ\'(ВГО \'СОУ\')',
         VudName: 'Громадська організація',
         Edrpou: 36482499,
@@ -71,7 +71,7 @@ export class MockData implements InMemoryDbService {
         License: 3090
       },
       {
-        DateReg: '12/08/2016',
+        DateReg: new Date('2016/12/8').getTime(),
         Name: 'Громадська організація \'Товариство австрійсько-німецької культури\'',
         VudName: 'Громадська організація',
         Edrpou: 21433016,
@@ -117,7 +117,7 @@ export class MockData implements InMemoryDbService {
     items.push(mapNewEl(mockData[1]));
 
     items.push = (el) => {
-      el.DateReg = (new Date()).toLocaleDateString();
+      el.DateReg = Date.now();
       Array.prototype.push.call(items, mapNewEl(el));
     };
 

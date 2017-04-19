@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" 
+<xliff version="1.2"
   xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
@@ -218,7 +218,12 @@
       </trans-unit>
       <trans-unit id="9979a830fd0e0db6f5e553b970fb15344c8f2fe8" datatype="html">
         <source>Search an associations:</source>
-        <target>Поиск ассоциаций:</target>
+        <target>&#x41F;&#x43E;&#x438;&#x441;&#x43A; &#x430;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x446;&#x438;&#x439;:</target>
+      </trans-unit>
+      <trans-unit id="1cd3c5801286a00506b2bb547fe13e10868f0239" datatype="html">
+        <source>Public associations</source>
+        <target>Общественные организации</target>
+        <note priority="1" from="description">Link to the public associations register</note>
       </trans-unit>
     </body>
   </file>

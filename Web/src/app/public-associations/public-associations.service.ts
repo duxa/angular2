@@ -35,10 +35,16 @@ export class PublicAssociationsService {
   private extractData(res: Response) {
     const body = res.json();
     const totalCount = res.headers.get('X-Total-Count');
+
     let result = (body && body.data) || body;
 
     if (totalCount) {
       result.TotalCount = totalCount;
+    }
+
+    // #todo: data mapper should be used here
+    if (Array.isArray(result)) {
+      result.forEach((el) => el.DateReg = (new Date(el.DateReg)).toLocaleDateString() );
     }
 
     return result;

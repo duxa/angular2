@@ -1,1 +1,1 @@
-export * from './judgments.component';
+export { JudgmentsModule } from './judgments.module';

@@ -1,7 +1,7 @@
 export class PublicAssociation {
   public Id: string;
   public RegNum: number;
-  public DateReg: Date;
+  public DateReg: number;
   public Name: string;
   public VudName: string;
   public Edrpou: number;

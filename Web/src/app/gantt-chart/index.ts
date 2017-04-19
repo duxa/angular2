@@ -1,1 +1,1 @@
-export * from './gantt-chart.module';
+export { GanttChartModule } from './gantt-chart.module';

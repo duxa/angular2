@@ -19,6 +19,6 @@ export const routes: Routes = [
     NotariesComponent
   ]
 })
-export default class NotariesModule {
+export class NotariesModule {
     public static routes = routes;
 }

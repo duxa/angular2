@@ -26,15 +26,20 @@ export class PublicAssociationDetailComponent {
     this.associationId = activateRoute.snapshot.params['id'];
 
     this.createForm();
-    this.getAssociation(this.associationId).subscribe((model: PublicAssociation) => {
-      this.setFormValue(model);
-    });
+    this.getAssociation(this.associationId)
+        .subscribe(
+          (model: PublicAssociation) => this.setFormValue(model),
+          (err) => {
+            console.log(err);
+            this.router.navigate(['public-associations']);
+          }
+        );
   }
 
   // #region Public Methods
   public onSubmit() {
     this.publicAssociationsService.update(this.associationForm.value).subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['public-associations']);
     });
   }
 

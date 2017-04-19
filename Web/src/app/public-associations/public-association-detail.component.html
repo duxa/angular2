@@ -1,7 +1,9 @@
 <h1 i18n="The new public organization|Title for the form of creation of new public organization"
+    document-title
     *ngIf="!associationId">The new public organization</h1>
 
 <h1 i18n="Update public organization|Title for the form of updation of public organization"
+    document-title
     *ngIf="associationId">Update public organization</h1>
 
 <form [formGroup]="associationForm" (ngSubmit)="onSubmit()" novalidate>

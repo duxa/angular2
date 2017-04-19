@@ -28,6 +28,6 @@ export const routes: Routes = [
     CalendarService
   ]
 })
-export default class GanttChartModule {
+export class GanttChartModule {
   public static routes = routes;
 }

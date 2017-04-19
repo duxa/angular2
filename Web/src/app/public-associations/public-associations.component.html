@@ -5,9 +5,9 @@
       <label for="searchAssociationsTerm" i18n>Search an associations:</label>
       <input id="searchAssociationsTerm" type="text" class="form-control" #term (keyup)="search(term.value)"/>
     </div>
-    <a class="btn btn-primary pull-right" [routerLink]="['./new-association']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
+    <a class="btn btn-primary pull-right" [routerLink]="['./new']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
   </div>
-  <table *ngIf="associations?.length > 0" class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
         <th i18n="Column header for Numero sign|Numero sign for the public organization">№</th>
@@ -24,9 +24,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let association of associations | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
+      <tr *ngFor="let association of associations | async | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
         <td>
-          <a [routerLink]="['association', association.Id]">{{association.RegNum}}</a>
+          <a [routerLink]="['./', association.Id]">{{association.RegNum}}</a>
         </td>
         <td>{{association.DateReg}}</td>
         <td>{{association.Name}}</td>
@@ -42,7 +42,6 @@
     </tbody>
   </table>
   <pagination-controls class="associations-pagination"
-                       [hidden]="associations?.length === 0"
                        (pageChange)="getPage($event)"
                        autoHide="true"
                        i18n-previousLabel="Previous"

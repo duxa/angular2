@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
@@ -14,7 +16,7 @@ import { PublicAssociation } from './public-association';
   styleUrls: [ './public-associations.component.less' ]
 })
 export class PublicAssociationsComponent implements OnInit {
-  public associations: PublicAssociation[];
+  public associations: Observable<PublicAssociation[]>;
   public itemsPerPage: number = 10;
   public totalCount: number = 0;
   public currentPage: number;
@@ -34,36 +36,38 @@ export class PublicAssociationsComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap((term: string) => {
         this.searchTerm = term;
-        return this.getAssociations(1);
-      })
-      .subscribe((dto) => {
-        this.extractData(dto);
-        this.currentPage = 1;
-      });
+        return this.getPage(1, true);
+      }).subscribe();
+/*
+ * "subscribe" is required because this Observable is cold,
+ * which means that the request won't go out until something subscribes to the Observable
+ * https://angular.io/docs/ts/latest/guide/server-communication.html#!#no-return-response-object
+ */
   }
 
-  public getPage(page: number) {
-    this.getAssociations(page)
-        .subscribe((dto) => {
-          this.extractData(dto);
-          this.currentPage = page;
-        });
-  }
+  public getPage(page: number, createSubject?: boolean) {
+    let subject = createSubject ? new Subject() : undefined;
 
-  public search(term: string) {
-    this.searchStream.next(term);
-  }
-
-  private extractData(dto) {
-      this.associations = dto;
-      this.totalCount = dto.TotalCount;
-  }
-
-  private getAssociations(page: number) {
-    return this.publicAssociationsService.get({
+    this.associations = this.publicAssociationsService.get({
       page,
       itemsPerPage: this.itemsPerPage,
       Name: this.searchTerm
     });
+
+    this.associations.subscribe((dto) => {
+      this.totalCount = (dto && (dto as any).TotalCount) || 0;
+      this.currentPage = page;
+
+      if (subject) {
+        subject.complete();
+        subject.unsubscribe();
+      }
+    });
+
+    return subject;
+  }
+
+  public search(term: string) {
+    this.searchStream.next(term);
   }
 }
