@@ -46,7 +46,12 @@ export class PublicAssociationsComponent implements OnInit {
   }
 
   public getPage(page: number, createSubject?: boolean) {
-    let subject = createSubject ? new Subject() : undefined;
+    let subject;
+
+    if (createSubject) {
+      subject = new Subject();
+      this.totalCount = 0;
+    }
 
     this.associations = this.publicAssociationsService.get({
       page,
@@ -60,7 +65,6 @@ export class PublicAssociationsComponent implements OnInit {
 
       if (subject) {
         subject.complete();
-        subject.unsubscribe();
       }
     });
 
