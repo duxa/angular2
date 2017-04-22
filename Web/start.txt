@@ -1,0 +1,13 @@
+# Builds a Docker to deliver dist/
+FROM nginx:latest
+COPY dist/ /usr/share/nginx/html
+
+ start-stop-daemon -Sbvx "/usr/bin/webpack-dev-server --config config/webpack.dev.js --open --progress --profile"
+
+ 
+ start-stop-daemon --start --quiet --make-pidfile --pidfile /var/run/node.pid  --background   --exec /root/angular2/angular2/Web/start.sh
+ 
+  /usr/bin/npm
+
+  
+  start-stop-daemon --start --quiet --make-pidfile --pidfile /var/run/node3.pid  --background  --chdir /root/angular2/angular2/Web   --exec  /usr/bin/npm start
