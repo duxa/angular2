@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Duxa.DAL;
 using Duxa.DAL.Repo;
-using DUXA.Microservices.Nancy.Controllers;
+using Gaev.Microservices.Nancy.Controllers;
 
 namespace DUXA.Microservices.Nancy
 {

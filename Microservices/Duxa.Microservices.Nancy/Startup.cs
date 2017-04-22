@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Autofac;
 using Duxa.Infrastructure;
+using DUXA.Microservices.Nancy;
 using Gaev.Microservices.Nancy;
 
 namespace Duxa.Microservices.Nancy
