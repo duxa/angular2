@@ -208,14 +208,23 @@
       </trans-unit>
       <trans-unit id="99c81eb2801e566d70ac0a08bac73783ca59fa50" datatype="html">
         <source>Unified State Register of Judgments</source>
-        <target>Единый государственный реестр судебных решений</target>
+        <target>&#x415;&#x434;&#x438;&#x43D;&#x44B;&#x439; &#x433;&#x43E;&#x441;&#x443;&#x434;&#x430;&#x440;&#x441;&#x442;&#x432;&#x435;&#x43D;&#x43D;&#x44B;&#x439; &#x440;&#x435;&#x435;&#x441;&#x442;&#x440; &#x441;&#x443;&#x434;&#x435;&#x431;&#x43D;&#x44B;&#x445; &#x440;&#x435;&#x448;&#x435;&#x43D;&#x438;&#x439;</target>
         <note priority="1" from="description">Unified State Register of Judgments</note>
       </trans-unit>
       <trans-unit id="fecf4bef0efce685e5a852274f432ab94798346f" datatype="html">
         <source>Unified Register of Notaries</source>
-        <target>Единый реестр нотариусов</target>
+        <target>&#x415;&#x434;&#x438;&#x43D;&#x44B;&#x439; &#x440;&#x435;&#x435;&#x441;&#x442;&#x440; &#x43D;&#x43E;&#x442;&#x430;&#x440;&#x438;&#x443;&#x441;&#x43E;&#x432;</target>
         <note priority="1" from="description">Unified Register of Notaries</note>
+      </trans-unit>
+      <trans-unit id="9979a830fd0e0db6f5e553b970fb15344c8f2fe8" datatype="html">
+        <source>Search an associations:</source>
+        <target>&#x41F;&#x43E;&#x438;&#x441;&#x43A; &#x430;&#x441;&#x441;&#x43E;&#x446;&#x438;&#x430;&#x446;&#x438;&#x439;:</target>
+      </trans-unit>
+      <trans-unit id="1cd3c5801286a00506b2bb547fe13e10868f0239" datatype="html">
+        <source>Public associations</source>
+        <target>Общественные организации</target>
+        <note priority="1" from="description">Link to the public associations register</note>
       </trans-unit>
     </body>
   </file>
-</xliff>
+</xliff>

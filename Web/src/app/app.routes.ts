@@ -1,24 +1,23 @@
 import { Routes } from '@angular/router';
 
-import { PublicAssociationsComponent } from './public-associations';
-import {
-  PublicAssociationDetailComponent
-} from './public-associations/public-association-detail.component';
+import { HomeComponent } from './home';
 
 export const routes: Routes = [
-  { path: '', component: PublicAssociationsComponent },
-  { path: 'new-association', component: PublicAssociationDetailComponent },
-  { path: 'association/:id', component: PublicAssociationDetailComponent },
+  { path: '', component: HomeComponent },
+  {
+    path: 'public-associations',
+    loadChildren: './public-associations#PublicAssociationsModule'
+  },
   {
     path: 'judgments',
-    loadChildren: () => System.import('./judgments/judgments.module').then((comp: any) => {
-      return comp.default;
-    })
+    loadChildren: './judgments#JudgmentsModule'
   },
   {
     path: 'notaries',
-    loadChildren: () => System.import('./notaries/notaries.module').then((comp: any) => {
-      return comp.default;
-    })
+    loadChildren: './notaries#NotariesModule'
+  },
+  {
+    path: 'gantt-chart',
+    loadChildren: './gantt-chart#GanttChartModule'
   }
 ];

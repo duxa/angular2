@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SharedModule } from '../shared.module';
 import { NotariesComponent } from './notaries.component';
 
 export const routes: Routes = [
@@ -11,12 +12,13 @@ export const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    SharedModule.forRoot(),
+    RouterModule.forChild(routes)
   ],
   declarations: [
     NotariesComponent
   ]
 })
-export default class NotariesModule {
+export class NotariesModule {
     public static routes = routes;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
@@ -12,16 +13,16 @@ import { PublicAssociation } from './public-association';
 @Component({
   selector: 'public-associations',
   templateUrl: './public-associations.component.html',
-  styleUrls: [ './public-associations.component.css' ]
+  styleUrls: [ './public-associations.component.less' ]
 })
 export class PublicAssociationsComponent implements OnInit {
-  public associations: PublicAssociation[];
+  public associations: Observable<PublicAssociation[]>;
   public itemsPerPage: number = 10;
+  public totalCount: number = 0;
   public currentPage: number;
-  public totalCount: number;
-  public loading: boolean;
 
-  private searchAssociationsStream = new Subject<string>();
+  private searchStream = new Subject<string>();
+  private searchTerm: string;
 
   constructor(
     private publicAssociationsService: PublicAssociationsService
@@ -30,34 +31,47 @@ export class PublicAssociationsComponent implements OnInit {
   public ngOnInit() {
     this.getPage(1);
 
-    this.searchAssociationsStream
+    this.searchStream
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap((term: string) => this.getAssociations(1, term))
-      .subscribe(); // subscribe is required because this Observable is "cold"
+      .switchMap((term: string) => {
+        this.searchTerm = term;
+        return this.getPage(1, true);
+      }).subscribe();
+/*
+ * "subscribe" is required because this Observable is cold,
+ * which means that the request won't go out until something subscribes to the Observable
+ * https://angular.io/docs/ts/latest/guide/server-communication.html#!#no-return-response-object
+ */
   }
 
-  public getPage(page: number) {
-    this.getAssociations(page);
-  }
+  public getPage(page: number, createSubject?: boolean) {
+    let subject;
 
-  private search(term: string) {
-    this.searchAssociationsStream.next(term);
-  }
+    if (createSubject) {
+      subject = new Subject();
+      this.totalCount = 0;
+    }
 
-  private getAssociations(page: number, search?: string) {
-    this.loading = true;
-
-    const itemsPerPage = this.itemsPerPage;
-    const request = this.publicAssociationsService.get({page, itemsPerPage, search});
-
-    request.subscribe((dto) => {
-      this.associations = dto.Items;
-      this.totalCount = dto.TotalCount;
-      this.currentPage = page;
-      this.loading = false;
+    this.associations = this.publicAssociationsService.get({
+      page,
+      itemsPerPage: this.itemsPerPage,
+      Name: this.searchTerm
     });
 
-    return request;
+    this.associations.subscribe((dto) => {
+      this.totalCount = (dto && (dto as any).TotalCount) || 0;
+      this.currentPage = page;
+
+      if (subject) {
+        subject.complete();
+      }
+    });
+
+    return subject;
+  }
+
+  public search(term: string) {
+    this.searchStream.next(term);
   }
 }

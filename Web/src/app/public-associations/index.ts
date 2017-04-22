@@ -1,1 +1,1 @@
-export * from './public-associations.component';
+export { PublicAssociationsModule } from './public-associations.module';

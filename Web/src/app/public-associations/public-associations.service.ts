@@ -1,44 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { PublicAssociation } from './public-association';
 
-interface IAssociationServerResponse {
-  Items: PublicAssociation[];
-  TotalCount: number;
-}
-
 @Injectable()
 export class PublicAssociationsService {
-  // mock url
-  private publicAssociationsUrl: string = '/assets/mock-data/public-associations.json';
-  // RESTful api url
-  // private publicAssociationsUrl: string = '/public-associations/';
+  private publicAssociationsUrl: string = 'api/public-associations/';
 
   constructor(private http: Http) {}
 
-  public get(params?: any): Observable<IAssociationServerResponse> {
+  public get(params?: any): Observable<PublicAssociation[]> {
     return this.getData(this.publicAssociationsUrl, params);
   }
 
   public getById(id: string): Observable<PublicAssociation> {
-    // RESTful
-    // return this.getData(this.publicAssociationsUrl + id);
-
-    // mock
-    return this.http
-      .get(this.publicAssociationsUrl)
-      .map((res: Response) => this.extractData(res).Items.find((x) => x.Id === id));
+    return this.getData(this.publicAssociationsUrl + id);
   }
 
   public update(association: PublicAssociation): Observable<PublicAssociation> {
-    const method = association.Id
-      ? 'put' // update existing association
-      : 'post'; // create new association
-    return this.http[method](this.publicAssociationsUrl, association)
+    return this.http
+               .post(this.publicAssociationsUrl, association)
                .map(this.extractData);
   }
 
@@ -50,6 +34,19 @@ export class PublicAssociationsService {
 
   private extractData(res: Response) {
     const body = res.json();
-    return body.data || body;
+    const totalCount = res.headers.get('X-Total-Count');
+
+    let result = (body && body.data) || body;
+
+    if (totalCount) {
+      result.TotalCount = totalCount;
+    }
+
+    // #todo: data mapper should be used here
+    if (Array.isArray(result)) {
+      result.forEach((el) => el.DateReg = (new Date(el.DateReg)).toLocaleDateString() );
+    }
+
+    return result;
   }
 }

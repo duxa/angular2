@@ -2,11 +2,52 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="aef7ad9cccc3c12731794034aecac9bc592c08bc" datatype="html">
+        <source>Home</source>
+        <target/>
+        <note priority="1" from="description">Link to the homepage from main menu</note>
+        <note priority="1" from="meaning">Homepage link</note>
+      </trans-unit>
+      <trans-unit id="1cd3c5801286a00506b2bb547fe13e10868f0239" datatype="html">
+        <source>Public associations</source>
+        <target/>
+        <note priority="1" from="description">Link to the public associations register</note>
+      </trans-unit>
+      <trans-unit id="40f373066abce1c2052357477b5c69c1a137561d" datatype="html">
+        <source>Judgments</source>
+        <target/>
+        <note priority="1" from="description">Link to the judgments register</note>
+      </trans-unit>
+      <trans-unit id="fad60fc4dc7172d2eea350eaa8c566506c1eaa60" datatype="html">
+        <source>Notaries</source>
+        <target/>
+        <note priority="1" from="description">Link to the notaries register</note>
+      </trans-unit>
+      <trans-unit id="c733b3894340a4ed9f1a8511ea4c228018b78ac2" datatype="html">
+        <source>Other languages:</source>
+        <target/>
+        <note priority="1" from="description">Label for dropdown with supported languages</note>
+        <note priority="1" from="meaning">Other languages label</note>
+      </trans-unit>
+      <trans-unit id="99c81eb2801e566d70ac0a08bac73783ca59fa50" datatype="html">
+        <source>Unified State Register of Judgments</source>
+        <target/>
+        <note priority="1" from="description">Unified State Register of Judgments</note>
+      </trans-unit>
+      <trans-unit id="fecf4bef0efce685e5a852274f432ab94798346f" datatype="html">
+        <source>Unified Register of Notaries</source>
+        <target/>
+        <note priority="1" from="description">Unified Register of Notaries</note>
+      </trans-unit>
       <trans-unit id="d6b6f343a1c42e194d60a508a6c1aab9c6fa93a8" datatype="html">
         <source>The register of public organizations</source>
         <target/>
         <note priority="1" from="description">The title of register of public organizations</note>
         <note priority="1" from="meaning">Title of register</note>
+      </trans-unit>
+      <trans-unit id="9979a830fd0e0db6f5e553b970fb15344c8f2fe8" datatype="html">
+        <source>Search an associations:</source>
+        <target/>
       </trans-unit>
       <trans-unit id="5b7e78ce552759ad1ff9e9e89b3579d8e772e814" datatype="html">
         <source>Register new</source>
@@ -182,38 +223,6 @@
         <target/>
         <note priority="1" from="description">Button of registering a new organization</note>
         <note priority="1" from="meaning">Register button</note>
-      </trans-unit>
-      <trans-unit id="aef7ad9cccc3c12731794034aecac9bc592c08bc" datatype="html">
-        <source>Home</source>
-        <target/>
-        <note priority="1" from="description">Link to the homepage from main menu</note>
-        <note priority="1" from="meaning">Homepage link</note>
-      </trans-unit>
-      <trans-unit id="40f373066abce1c2052357477b5c69c1a137561d" datatype="html">
-        <source>Judgments</source>
-        <target/>
-        <note priority="1" from="description">Link to the judgments register</note>
-      </trans-unit>
-      <trans-unit id="fad60fc4dc7172d2eea350eaa8c566506c1eaa60" datatype="html">
-        <source>Notaries</source>
-        <target/>
-        <note priority="1" from="description">Link to the notaries register</note>
-      </trans-unit>
-      <trans-unit id="c733b3894340a4ed9f1a8511ea4c228018b78ac2" datatype="html">
-        <source>Other languages:</source>
-        <target/>
-        <note priority="1" from="description">Label for dropdown with supported languages</note>
-        <note priority="1" from="meaning">Other languages label</note>
-      </trans-unit>
-      <trans-unit id="99c81eb2801e566d70ac0a08bac73783ca59fa50" datatype="html">
-        <source>Unified State Register of Judgments</source>
-        <target/>
-        <note priority="1" from="description">Unified State Register of Judgments</note>
-      </trans-unit>
-      <trans-unit id="fecf4bef0efce685e5a852274f432ab94798346f" datatype="html">
-        <source>Unified Register of Notaries</source>
-        <target/>
-        <note priority="1" from="description">Unified Register of Notaries</note>
       </trans-unit>
     </body>
   </file>
