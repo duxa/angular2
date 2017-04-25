@@ -4,6 +4,41 @@ import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 
 const itemsPerPage = 10;
 
+let getRandomInt = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const availablePersons = [
+  'Фрасинюк Віктор Іванович',
+  'Тостановський Михайло Васильович',
+  'Ліщинський Володимир Сергійович',
+  'Катинський Микола Омельянович',
+  'Стаховський Едуард  Олександрович',
+  'Вукалович  П. С.',
+  'Войненко О. А.',
+  'Келлнер франціск Адольфович',
+  'Кияр Тарас Романович',
+  'Вітталь Едмунд Едмундович'
+];
+
+let getUniqueItem = (items, allItems) => {
+  let uniqueItem = allItems[getRandomInt(0, allItems.length - 1)];
+  return items.includes(uniqueItem)
+    ? getUniqueItem(items, allItems)
+    : uniqueItem;
+};
+
+let getRandomPersons = () => {
+  let count = getRandomInt(1, 4);
+  let persons = [];
+
+  for (let i = 0, person; i < count; i++) {
+    persons.push(getUniqueItem(persons, availablePersons));
+  }
+
+  return persons;
+};
+
 export class PublicAssociationsData implements InMemoryDbService {
   // responseInterceptor required to add 'X-Total-Count' header
   // to follow RESTful API pagination best practices
@@ -28,76 +63,26 @@ export class PublicAssociationsData implements InMemoryDbService {
     let curId = 1;
     let db = {};
 
-    const mockData = [
-      {
-        DateReg: new Date('1993/3/31').getTime(),
-        Name: 'Обласне товариство рятування на воді',
-        VudName: 'Громадська організація',
-        Edrpou: '',
-        Adress: 'Чернівецька обл., м. Чернівці,  вул. Університетська, 19',
-        Phone: '',
-        Zasnovn: [
-          'Фрасинюк Віктор Іванович',
-          'Тостановський Михайло Васильович',
-          'Ліщинський Володимир Сергійович'
-        ],
-        Government: [
-          'Фрасинюк Віктор Іванович, Голова',
-          'Катинський Микола Омельянович, Заступник',
-          'Ліщинський Володимир Сергійович, Заступник'
-        ],
-        Kved: '',
-        License: 32
-      },
-      {
-        DateReg: new Date('2016/12/1').getTime(),
-        Name: 'ВСЕУКРАЇНСЬКА ГРОМАДСЬКА ОРГАНІЗАЦІЯ \'СПІЛКА ОНКОУРОЛОГІВ УКРАЇНИ\'(ВГО \'СОУ\')',
-        VudName: 'Громадська організація',
-        Edrpou: 36482499,
-        Adress: '03022, м.Київ, Голосіївський р., ВУЛИЦЯ ЛОМОНОСОВА, будинок 33/43',
-        Phone: '0675380276',
-        Zasnovn: [
-          'СТАХОВСЬКИЙ ЕДУАРД  ОЛЕКСАНДРОВИЧ',
-          'Вукалович  П. С.',
-          'Войненко О. А.'
-        ],
-        Government: [
-          'СТАХОВСЬКИЙ  ЕДУАРД  ОЛЕКСАНДРОВИЧ, Голова Правління',
-          'Кравчук Т. В., Член',
-          'Безпалова А. В., Член',
-          'Миронюк  С. В., Член'
-        ],
-        Kved: 'Діяльність професійних громадських організацій',
-        License: 3090
-      },
-      {
-        DateReg: new Date('2016/12/8').getTime(),
-        Name: 'Громадська організація \'Товариство австрійсько-німецької культури\'',
-        VudName: 'Громадська організація',
-        Edrpou: 21433016,
-        Adress: '58000, Чернівецька обл., м. Чернівці, Першотравневий р., вул. Кобилянської, 53',
-        Phone: '0675380276',
-        Zasnovn: [
-          'Келлнер франціск Адольфович',
-          'Кияр Тарас Романович',
-          'Вітталь Едмунд Едмундович'
-        ],
-        Government: [
-          'Шламп Олександр Миколайович, Голова Організації, член Президії',
-          'Дуган Василь Михайлович, член Президії',
-          'Литвин Катерина Володимирівна, член Президії',
-          'Вітталь Інга Едмундівна, член Президії',
-          'Півторак Павло Пилипович, член Президії'
-        ],
-        Kved: 'Діяльність інших громадських організацій, н. в. і. у.',
-        License: 2
-      }
-    ];
-
     let mapNewEl = ((el) => {
       let newEl = Object.assign({}, el);
       newEl.Id = curId + '';
       newEl.RegNum = newEl.Id;
+
+      // Random filling of data
+      newEl.DateReg = newEl.DateReg || new Date(
+        getRandomInt(1991, 2016), // year
+        getRandomInt(0, 11), // month
+        getRandomInt(1, 28) // date
+      ).getTime();
+      newEl.Name = newEl.Name || 'Громадська організація ' + newEl.Id;
+      newEl.Government = newEl.Government || getRandomPersons();
+      newEl.Zasnovn = newEl.Zasnovn || getRandomPersons();
+      newEl.Kved = newEl.Kved || 'Діяльність інших громадських організацій';
+      newEl.Adress = newEl.Adress || 'Адреса ' + newEl.Id;
+      newEl.VudName = 'Громадська організація';
+      newEl.Edrpou = getRandomInt(10000000, 99999999);
+      newEl.License = getRandomInt(1, 9999);
+      newEl.Phone = '+380' + getRandomInt(100000000, 999999999);
 
       // properties required for pagination and update functionality
       newEl.id = newEl.Id;
@@ -108,15 +93,15 @@ export class PublicAssociationsData implements InMemoryDbService {
       return newEl;
     });
 
-    // copy mockData "itemsPerPage" times to have enough data for pagination
     for (let i = 0; i < itemsPerPage; i++) {
-      items.push(...mockData.map(mapNewEl));
+      items.push(...[{}, {}, {}].map(mapNewEl));
     }
 
     // add one extra mock item to have page with one item
-    items.push(mapNewEl(mockData[1]));
+    items.push(mapNewEl({}));
 
-    items.push = (el) => {
+    items.push = (el, ...rest) => {
+      console.log(el, rest);
       el.DateReg = Date.now();
       Array.prototype.push.call(items, mapNewEl(el));
     };
