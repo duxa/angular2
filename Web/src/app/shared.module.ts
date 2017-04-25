@@ -25,13 +25,7 @@ import { CustomHttp } from './custom-http';
     {
       provide: Http,
       deps: [ XHRBackend, RequestOptions ],
-      useFactory: (
-        backend: XHRBackend,
-        defaultOptions: RequestOptions
-      ) => new CustomHttp(backend, defaultOptions)
-      /*
-       * "CustomHttp" it's a global Http error handler
-       */
+      useClass: CustomHttp // "CustomHttp" it's a global Http error handler
     }
   ]
 })
