@@ -88,5 +88,10 @@ namespace Duxa.Infrastructure
         {
             throw new NotImplementedException();
         }
+
+        public static implicit operator Func<object>(WebApiDependencyResolver v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

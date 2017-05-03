@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Duxa.DAL;
 
 namespace Gaev.Microservices.Nancy.Controllers
 {
@@ -14,6 +15,7 @@ namespace Gaev.Microservices.Nancy.Controllers
         private readonly IClientRepository _clientRepository;
         public HelloWordController(IClientRepository clientRepository)
         {
+            // _clientRepository = new ClientRepository();
             _clientRepository = clientRepository;
         }
 
