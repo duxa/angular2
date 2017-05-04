@@ -14,26 +14,9 @@ namespace XMLParseStart
     {
         static void Main(string[] args)
         {
-            var clientService = new ClientService(new ClientRepository(),new SandBox());
-            //clientService.GetClients(new Uri("http://old.minjust.gov.ua/downloads/15-UFOP.zip"));
-            var listClients = new List<FOPS>()
-            {
-                new FOPS()
-                {
-                    Address = "Dievka 22",
-                    MainActivity = "Work",
-                    Status = "Work",
-                    FIO = "Test"
-                },
-                new FOPS()
-                {
-                    Address = "Dievka 21",
-                    MainActivity = "Work1",
-                    Status = "Work2",
-                    FIO = "Test1"
-                },
-            };
-            clientService.SaveClients(listClients);
+            QuartzSheduller sheduller = new QuartzSheduller();
+            sheduller.ExecuteScheduler();
+            Console.ReadLine();
         }
     }
 }
