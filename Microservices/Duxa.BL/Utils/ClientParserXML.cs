@@ -10,12 +10,13 @@ namespace Duxa.BL.Utils
 {
     public static class ClientParserXML
     {
-        public static IEnumerable<ClientDto> GetClients(XDocument document)
+        public static IEnumerable<FOPS> GetClients(XDocument document)
         {
-            foreach (var row in document.Elements(XName.Get("ROW")))
+            var x = document.Descendants("ROW");
+            foreach (var row in document.Descendants("ROW"))
             {
                 
-                yield return new ClientDto
+                yield return new FOPS
                 {
                      FIO = row.Element(XName.Get("ПІБ")).Value,
                      Address = row.Element(XName.Get("Місце_проживання")).Value,

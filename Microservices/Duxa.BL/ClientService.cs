@@ -22,7 +22,7 @@ namespace Duxa.BL
             _sandBox = sandBox;
         }
 
-        public List<ClientDto> GetClients(Uri url)
+        public List<FOPS> GetClients(Uri url)
         {
             //var tempFileName = _sandBox.GetNewTempFileName();
             //ClientDataLoader.LoadFromExternalStore(url, tempFileName);
@@ -30,17 +30,14 @@ namespace Duxa.BL
             //var tempFolderName = _sandBox.GetNewTempFolderName();
             //ClientDataLoader.UnzipClientData(tempFileName, tempFolderName);
 
-            var clientsData = Directory.GetFiles(@"D:\Repos\15-U").Where(s => s.Contains("Test"));
+            var clientsData = Directory.GetFiles(@"D:\FopFiles");
 
-            var clients = new List<ClientDto>();
+            var clients = new List<FOPS>();
             foreach (var clientData in clientsData)
             {
 
                 var rr = XDocument.Load(clientData);
                 var clientsTmp = ClientParserXML.GetClients(rr);
-                
-
-
                 clients.AddRange(clientsTmp);
             }
           
