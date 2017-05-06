@@ -1,5 +1,6 @@
 ﻿using Duxa.BL.Utils;
 using Duxa.DAL;
+using Duxa.DAL.Repo;
 using Duxa.DAL.Repo.Dto;
 using System;
 using System.Collections.Generic;

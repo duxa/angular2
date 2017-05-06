@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Duxa.DAL.Repo.Dto;
+using Duxa.DAL.Repo;
 
 namespace Duxa.BL.Utils
 {
