@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Duxa.BL.Utils;
+using Duxa.DAL;
 using Duxa.DAL.Repo;
 using Duxa.DAL.Repo.Dto;
 using Duxa.Infrastructure;
@@ -24,23 +25,22 @@ namespace Duxa.BL
 
         public List<FOPS> GetClients(Uri url)
         {
-            //var tempFileName = _sandBox.GetNewTempFileName();
-            //ClientDataLoader.LoadFromExternalStore(url, tempFileName);
+            var tempFileName = _sandBox.GetNewTempFileName();
+            ClientDataLoader.LoadFromExternalStore(url, tempFileName);
+            var tempFolderName = _sandBox.GetNewTempFolderName();
+            ClientDataLoader.UnzipClientData(tempFileName, tempFolderName);
 
-            //var tempFolderName = _sandBox.GetNewTempFolderName();
-            //ClientDataLoader.UnzipClientData(tempFileName, tempFolderName);
-
-            var clientsData = Directory.GetFiles(@"D:\FopFiles");
-
+            var clientsData = Directory.GetFiles(tempFolderName);
             var clients = new List<FOPS>();
+            
             foreach (var clientData in clientsData)
             {
-
                 var rr = XDocument.Load(clientData);
                 var clientsTmp = ClientParserXML.GetClients(rr);
                 clients.AddRange(clientsTmp);
             }
-          
+            new ClientRepository().Save(clients);
+
             return clients;
         }
 
