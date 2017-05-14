@@ -11,5 +11,7 @@ namespace Duxa.BL
     public interface IClientService
     {
         FOPS GetFOP(string name);
+        string DownloadFile(Uri url);
+        List<FOPS> ParseClients(string path);
     }
 }

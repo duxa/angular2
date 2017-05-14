@@ -23,23 +23,25 @@ namespace Duxa.BL
             _sandBox = sandBox;
         }
 
-        public List<FOPS> GetClients(Uri url)
+        public string DownloadFile(Uri url)
         {
             var tempFileName = _sandBox.GetNewTempFileName();
             ClientDataLoader.LoadFromExternalStore(url, tempFileName);
-            var tempFolderName = _sandBox.GetNewTempFolderName();
-            ClientDataLoader.UnzipClientData(tempFileName, tempFolderName);
+            return tempFileName;
+        }
 
-            var clientsData = Directory.GetFiles(tempFolderName);
+        public List<FOPS> ParseClients(string path)
+        {
             var clients = new List<FOPS>();
-            
+            var tempFolderName = _sandBox.GetNewTempFolderName();
+            ClientDataLoader.UnzipClientData(path, tempFolderName);
+            var clientsData = Directory.GetFiles(tempFolderName);
             foreach (var clientData in clientsData)
             {
                 var rr = XDocument.Load(clientData);
                 var clientsTmp = ClientParserXML.GetClients(rr);
                 clients.AddRange(clientsTmp);
             }
-            new ClientRepository().Save(clients);
 
             return clients;
         }
