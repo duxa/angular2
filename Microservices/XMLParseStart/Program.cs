@@ -16,11 +16,20 @@ namespace XMLParseStart
     {
         static void Main(string[] args)
         {
-            TopshelfHost.Boot<MicroserviceA>(serviceName: "MicroserviceA");
+           
 
             QuartzSheduller sheduller = new QuartzSheduller();
             sheduller.ExecuteScheduler();
-            Console.ReadLine();
+           
+            /*
+            var clientService = new ClientService(new ClientRepository(), new SandBox());
+            var tempPath = "E:\\ActiveProject\\Download files\\15-UFOP\\FOP_1.xml";
+            var clients = clientService.ParseClients(tempPath);
+            */
+
+            TopshelfHost.Boot<MicroserviceA>(serviceName: "MicroserviceA");
+            //Console.ReadLine();
+
         }
     }
     class MicroserviceA : Microservice

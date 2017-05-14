@@ -30,19 +30,23 @@ namespace Duxa.BL
             return tempFileName;
         }
 
-        public List<FOPS> ParseClients(string path)
+        public List<string> UnzipFiles(string path)
         {
-            var clients = new List<FOPS>();
             var tempFolderName = _sandBox.GetNewTempFolderName();
             ClientDataLoader.UnzipClientData(path, tempFolderName);
-            var clientsData = Directory.GetFiles(tempFolderName);
-            foreach (var clientData in clientsData)
+            return Directory.GetFiles(tempFolderName).ToList();
+        }
+
+        public List<FOPS> ParseClients(List<string> pathes)
+        {
+            var clients = new List<FOPS>();
+
+            foreach (var clientData in pathes)
             {
                 var rr = XDocument.Load(clientData);
                 var clientsTmp = ClientParserXML.GetClients(rr);
                 clients.AddRange(clientsTmp);
             }
-
             return clients;
         }
 

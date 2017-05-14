@@ -12,6 +12,6 @@ namespace Duxa.BL
     {
         FOPS GetFOP(string name);
         string DownloadFile(Uri url);
-        List<FOPS> ParseClients(string path);
+        List<FOPS> ParseClients(List<string> pathes);
     }
 }
