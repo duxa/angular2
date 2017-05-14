@@ -79,6 +79,22 @@
       <Project>{F9AA2151-7024-4122-BD43-D2B6597662B9}</Project>
       <Name>Duxa.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Duxa.Microservices.Autofac\Duxa.Microservices.Autofac.csproj">
+      <Project>{0c95c890-488e-48d8-a24f-a38d66f13665}</Project>
+      <Name>Duxa.Microservices.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duxa.Microservices.Nancy\Duxa.Microservices.Nancy.csproj">
+      <Project>{e758e41f-2f81-4c13-81a4-23d9ee6a1069}</Project>
+      <Name>Duxa.Microservices.Nancy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duxa.Microservices.Topshelf\Duxa.Microservices.Topshelf.csproj">
+      <Project>{8F7340EA-1288-4C1A-BED9-7560F3B19027}</Project>
+      <Name>Duxa.Microservices.Topshelf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duxa.Microservices\Duxa.Microservices.csproj">
+      <Project>{bbb11616-8c96-4d40-99a7-86f67d0b1990}</Project>
+      <Name>Duxa.Microservices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

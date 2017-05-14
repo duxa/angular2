@@ -7,6 +7,8 @@ using Duxa.BL;
 using Duxa.DAL;
 using Duxa.DAL.Repo;
 using Duxa.Infrastructure;
+using Duxa.Microservices;
+using Duxa.Microservices.Nancy.Duxa.Microservices;
 
 namespace XMLParseStart
 {
@@ -14,9 +16,15 @@ namespace XMLParseStart
     {
         static void Main(string[] args)
         {
+            TopshelfHost.Boot<MicroserviceA>(serviceName: "MicroserviceA");
+
             QuartzSheduller sheduller = new QuartzSheduller();
             sheduller.ExecuteScheduler();
             Console.ReadLine();
         }
+    }
+    class MicroserviceA : Microservice
+    {
+        protected override ISetup Starting() => It.Will().HaveName("A").UseAutofac().UseWebApi().Build();
     }
 }
