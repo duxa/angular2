@@ -1,0 +1,12 @@
+FROM node:latest
+
+MAINTAINER Smirnov Aleksej
+
+RUN mkdir -p /usr/src/app/source /usr/src/app/build
+
+COPY ./Web /usr/src/app/source
+WORKDIR /usr/src/app/source/Web
+
+RUN npm install
+RUN npm run server
+
