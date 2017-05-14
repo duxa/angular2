@@ -63,7 +63,7 @@ public class ParseJob : IJob
         var clientService = new ClientService(new ClientRepository(), new SandBox());
         var path = clientService.DownloadFile(new Uri("http://old.minjust.gov.ua/downloads/15-UFOP.zip"));
         var listPath = clientService.UnzipFiles(path);
-        var clients = clientService.ParseClients(listPath);
+        var clients = clientService.ParseClients(listPath.Where(x=> x.StartsWith("F")).ToList());
         clientService.SaveClients(clients);
     }
 }
