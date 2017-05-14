@@ -1,3 +1,0 @@
-Examples and descriptions:
-https://www.teamgantt.com/blog/gantt-chart-example/
-https://en.wikipedia.org/wiki/Gantt_chart

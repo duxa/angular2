@@ -88,6 +88,11 @@ export class PublicAssociationDetailComponent {
       RegNum: '',
       DateReg: '',
 
+      // hidden fields required only to support update functionality in "angular-in-memory-web-api"
+      id: '',
+      itemsPerPage: '',
+      page: '',
+
       Name: ['', Validators.required ],
       VudName: ['', Validators.required ],
       Edrpou: '',
