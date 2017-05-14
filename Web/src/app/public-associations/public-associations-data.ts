@@ -85,7 +85,7 @@ export class PublicAssociationsData implements InMemoryDbService {
       newEl.Phone = '+380' + getRandomInt(100000000, 999999999);
 
       // properties required for pagination and update functionality
-      newEl.id = newEl.Id;
+      newEl.id = curId;
       newEl.itemsPerPage = itemsPerPage;
       newEl.page = 1234567890;
 
@@ -100,8 +100,7 @@ export class PublicAssociationsData implements InMemoryDbService {
     // add one extra mock item to have page with one item
     items.push(mapNewEl({}));
 
-    items.push = (el, ...rest) => {
-      console.log(el, rest);
+    items.push = (el) => {
       el.DateReg = Date.now();
       Array.prototype.push.call(items, mapNewEl(el));
     };
