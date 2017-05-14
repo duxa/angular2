@@ -8,5 +8,5 @@ COPY ./Web /usr/src/app/source
 WORKDIR /usr/src/app/source/Web
 
 RUN npm install
-CMD [ "npm",  "run server" ]
+CMD [ "npm",  "run", "server" ]
 
