@@ -1,23 +1,23 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './home';
+import { HomeComponent } from './components/home';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'public-associations',
-    loadChildren: './public-associations#PublicAssociationsModule'
+    loadChildren: './modules/public-associations.module'
   },
   {
     path: 'judgments',
-    loadChildren: './judgments#JudgmentsModule'
+    loadChildren: './modules/judgments.module'
   },
   {
     path: 'notaries',
-    loadChildren: './notaries#NotariesModule'
+    loadChildren: './modules/notaries.module'
   },
   // {
     // path: 'gantt-chart',
-    // loadChildren: './gantt-chart#GanttChartModule'
+    // loadChildren: './modules/gantt-chart.module'
   // }
 ];

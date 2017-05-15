@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // app modules
-import { UserSessionService } from './user-session.service';
-import { SharedModule } from './shared.module';
+import { SharedModule } from './modules/shared.module';
+import { UserSessionService } from './services';
 import { ENV_PROVIDERS } from './environment';
 import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
+import { HomeComponent } from './components/home';
 
 // common styles
 import '../styles/main.less';

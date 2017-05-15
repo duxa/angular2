@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { UserSessionService } from './user-session.service';
+import { UserSessionService } from './services';
 
 const supportedLocales = [
   { id: '', name: 'English (en-US)' },

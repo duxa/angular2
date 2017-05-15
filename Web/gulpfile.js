@@ -36,7 +36,7 @@ function removeNodeFromList(nodeList, node) {
 /*************************************
  * Constants
  *************************************/
-const PATH_I18N_LANGUAGES = "./src/locale";
+const PATH_I18N_LANGUAGES = "./src/assets/locale";
 const FILE_SOURCE_I18N = "./messages.xlf";
 const XLF_MASK = "/*.xlf";
 

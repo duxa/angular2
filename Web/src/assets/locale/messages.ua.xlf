@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2"
+<xliff version="1.2" 
   xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
@@ -222,8 +222,16 @@
       </trans-unit>
       <trans-unit id="1cd3c5801286a00506b2bb547fe13e10868f0239" datatype="html">
         <source>Public associations</source>
-        <target>Громадські організацї</target>
+        <target>&#x413;&#x440;&#x43E;&#x43C;&#x430;&#x434;&#x441;&#x44C;&#x43A;&#x456; &#x43E;&#x440;&#x433;&#x430;&#x43D;&#x456;&#x437;&#x430;&#x446;&#x457;</target>
         <note priority="1" from="description">Link to the public associations register</note>
+      </trans-unit>
+      <trans-unit id="84d867271be0ace7c944317492f865da2b3392d5" datatype="html">
+        <source>This is test project where you can discover different registers:</source>
+        <target>Це тестовий проект, в якому ви можете знайти різні реєстри:</target>
+      </trans-unit>
+      <trans-unit id="a2f993b6d18dae80358baeeb511142165795899b" datatype="html">
+        <source>Home page</source>
+        <target>Домашня сторінка</target>
       </trans-unit>
     </body>
   </file>

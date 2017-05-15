@@ -2,12 +2,12 @@ import { platformBrowser } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
 
 import { decorateModuleRef } from './app/environment';
-import { getTranslationProviders } from './app/i18n-providers';
+import { I18nService } from './app/services';
 
 import { AppModuleNgFactory } from '../compiled/src/app/app.module.ngfactory';
 
 export function main(): Promise<any> {
-  return getTranslationProviders().then((providers) => {
+  return I18nService.getI18nProviders().then((providers) => {
     const options = { providers };
 
     platformBrowser()

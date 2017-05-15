@@ -7,8 +7,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
-import { PublicAssociationsService } from './public-associations.service';
-import { PublicAssociation } from './public-association';
+import { PublicAssociationsService } from '../../services';
+import { PublicAssociation } from '../../models';
 
 @Component({
   selector: 'public-associations',

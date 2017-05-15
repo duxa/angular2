@@ -4,13 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { SharedModule } from '../shared.module';
-import { PublicAssociationsData } from './public-associations-data';
+import { SharedModule } from './shared.module';
+import { PublicAssociationsService } from '../services';
+
+import { PublicAssociationsData } from '../mock-data/public-associations.data';
+
+import { PublicAssociationsComponent } from '../components/public-associations';
 import {
-  PublicAssociationsService,
-  PublicAssociationsComponent,
   PublicAssociationDetailComponent
-} from './index-inner';
+} from '../components/public-associations/public-association-detail';
 
 export const routes: Routes = [
     { path: '', component: PublicAssociationsComponent, pathMatch: 'full' },
@@ -35,6 +37,6 @@ export const routes: Routes = [
     PublicAssociationsService
   ]
 })
-export class PublicAssociationsModule {
+export default class PublicAssociationsModule {
     public static routes = routes;
 }

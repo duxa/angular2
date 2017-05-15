@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SharedModule } from '../shared.module';
-import { NotariesComponent } from './notaries.component';
+import { SharedModule } from './shared.module';
+import { JudgmentsComponent } from '../components/judgments';
 
 export const routes: Routes = [
-    { path: '', component: NotariesComponent, pathMatch: 'full' }
+    { path: '', component: JudgmentsComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -16,9 +16,9 @@ export const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    NotariesComponent
+    JudgmentsComponent
   ]
 })
-export class NotariesModule {
+export default class JudgmentsModule {
     public static routes = routes;
 }

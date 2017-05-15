@@ -5,8 +5,8 @@ import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@ang
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { PublicAssociationsService } from './public-associations.service';
-import { PublicAssociation } from './public-association';
+import { PublicAssociationsService } from '../../../services';
+import { PublicAssociation } from '../../../models';
 
 @Component({
   selector: 'public-association-detail',

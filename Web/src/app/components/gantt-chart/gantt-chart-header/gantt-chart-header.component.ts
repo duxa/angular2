@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { CalendarService, DateRangeTypes } from '../services/calendar.service';
+import { CalendarService, DateRangeTypes } from '../../../services';
 
 @Component({
   selector: 'gantt-chart-header',

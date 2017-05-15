@@ -1,12 +1,12 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 
-import { getTranslationProviders } from './app/i18n-providers';
+import { I18nService } from './app/services';
 import { decorateModuleRef } from './app/environment';
 import { AppModule } from './app';
 
 export function main(): Promise<any> {
-  return getTranslationProviders().then((providers) => {
+  return I18nService.getI18nProviders().then((providers) => {
     const options = { providers };
 
     platformBrowserDynamic()

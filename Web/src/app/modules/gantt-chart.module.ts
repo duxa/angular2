@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SharedModule } from '../shared.module';
-import { GanttChartComponent } from './gantt-chart.component';
-import { GanttChartHeaderComponent } from './gantt-chart-header';
-import { GanttChartBodyComponent } from './gantt-chart-body';
+import { SharedModule } from './shared.module';
 
-import { CalendarService } from './services';
+import {
+  GanttChartComponent,
+  GanttChartBodyComponent,
+  GanttChartHeaderComponent
+} from '../components/gantt-chart';
+
+import { CalendarService } from '../services';
 
 export const routes: Routes = [
     { path: '', component: GanttChartComponent, pathMatch: 'full' }
@@ -28,6 +31,6 @@ export const routes: Routes = [
     CalendarService
   ]
 })
-export class GanttChartModule {
+export default class GanttChartModule {
   public static routes = routes;
 }

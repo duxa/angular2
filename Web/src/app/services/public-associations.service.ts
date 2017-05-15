@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { PublicAssociation } from './public-association';
+import { PublicAssociation } from '../models';
 
 @Injectable()
 export class PublicAssociationsService {
