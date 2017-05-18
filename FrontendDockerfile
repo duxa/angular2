@@ -5,7 +5,7 @@ MAINTAINER Smirnov Aleksej
 RUN mkdir -p /usr/src/app/source /usr/src/app/build
 
 COPY ./Web /usr/src/app/source
-WORKDIR /usr/src/app/source/Web
+WORKDIR /usr/src/app/source
 
 RUN npm install
 CMD [ "npm",  "run", "server" ]
