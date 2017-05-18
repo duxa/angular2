@@ -8,5 +8,6 @@ COPY ./Web /usr/src/app/source
 WORKDIR /usr/src/app/source
 
 RUN npm install
-CMD [ "npm",  "run", "server" ]
+RUN npm install http-server -g
+CMD [ "npm",  "run", "server:prod" ]
 
