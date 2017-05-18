@@ -88,6 +88,7 @@
     "@types/angular": "^1.6.14",
     "@angular/compiler-cli": "~4.0.1",
     "ngx-pagination": "^3.0.0",
+    "@angularclass/hmr-loader":"^3.0.2",
     "bootstrap": "^3.3.7",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
