@@ -9,5 +9,6 @@ WORKDIR /usr/src/app/source
 
 RUN npm install
 RUN npm install http-server -g
+RUN npm run build
 CMD [ "npm",  "run", "server:prod" ]
 
