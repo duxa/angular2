@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Duxa.Infrastructure
 {
     public class SandBox: ISandBox
     {
-        private readonly string SandboxPath = @"D:\Repos";
+        private readonly string SandboxPath = ConfigurationManager.AppSettings["FileRepository"];
 
         public string GetNewTempFileName()
         {
