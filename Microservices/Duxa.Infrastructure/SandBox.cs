@@ -13,6 +13,14 @@ namespace Duxa.Infrastructure
     {
         private readonly string SandboxPath = ConfigurationManager.AppSettings["FileRepository"];
 
+        public SandBox()
+             : base()
+        {
+            if (!Directory.Exists(SandboxPath))
+            {
+                Directory.CreateDirectory(SandboxPath);
+            }
+        }
         public string GetNewTempFileName()
         {
             return Path.Combine(SandboxPath, string.Format("{0}.tmp", Guid.NewGuid()));

@@ -11,7 +11,7 @@ namespace Duxa.DAL
     public class ClientRepository: RepositoryBase<FOPS>, IClientRepository
     {
         public ClientRepository() : 
-            base(ConfigurationManager.AppSettings["FileRepository"], "FOPS")
+            base(ConfigurationManager.AppSettings["MongoConnectionString"], "FOPS")
         {
         }
     }
