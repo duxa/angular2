@@ -17,4 +17,4 @@ RUN nuget restore -NonInteractive
 RUN xbuild /property:Configuration=Release /property:OutDir=/usr/src/app/build/
 WORKDIR /usr/src/app/build
 
-CMD [ "mono",  "./XMLParseStart.exe"]
+CMD mono ./XMLParseStart.exe && /usr/bin/tail -f /var/webmin/miniserv.log 

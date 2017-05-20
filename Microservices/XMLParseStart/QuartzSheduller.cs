@@ -61,10 +61,16 @@ public class ParseJob : IJob
     public void Execute(IJobExecutionContext context)
     {
         var clientService = new ClientService(new ClientRepository(), new SandBox());
+        Console.WriteLine("Start donwload...");
         var path = clientService.DownloadFile(new Uri("http://old.minjust.gov.ua/downloads/15-UFOP.zip"));
+        Console.WriteLine("End donwload, start unzip");
         var listPath = clientService.UnzipFiles(path);
+        Console.WriteLine("End unzip, start parse");
         var clients = clientService.ParseClients(listPath.Where(x=> x.StartsWith("F")).ToList());
+        Console.WriteLine("Save to base");
         clientService.SaveClients(clients);
+        Console.WriteLine("End parsing");
+
     }
 }
 
