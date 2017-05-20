@@ -10,7 +10,7 @@ namespace Duxa.DAL
     public class ClientRepository: RepositoryBase<FOPS>, IClientRepository
     {
         public ClientRepository() : 
-            base("mongodb://localhost/Registry", "FOPS")
+            base("mongodb://mongodb/Registry", "FOPS")
         {
         }
     }
