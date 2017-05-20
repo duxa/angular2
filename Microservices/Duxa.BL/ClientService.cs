@@ -34,7 +34,7 @@ namespace Duxa.BL
         {
             var tempFolderName = _sandBox.GetNewTempFolderName();
             ClientDataLoader.UnzipClientData(path, tempFolderName);
-            return Directory.GetFiles(tempFolderName).ToList();
+            return Directory.GetFiles(Path.Combine(tempFolderName , "15-UFOP")).ToList();
         }
 
         public List<FOPS> ParseClients(List<string> pathes)

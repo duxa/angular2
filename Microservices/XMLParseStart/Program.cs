@@ -24,7 +24,7 @@ namespace XMLParseStart
             Console.WriteLine("End donwload, start unzip");
             var listPath = clientService.UnzipFiles(path);
             Console.WriteLine("End unzip, start parse");
-            var clients = clientService.ParseClients(listPath.Where(x => x.StartsWith("F")).ToList());
+            var clients = clientService.ParseClients(listPath.Where(x => x.Contains("FOP_")).ToList());
             Console.WriteLine("Save to base");
             clientService.SaveClients(clients);
             Console.WriteLine("End parsing");
