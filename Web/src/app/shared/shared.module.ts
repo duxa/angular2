@@ -9,8 +9,8 @@ import {
 // third-party modules
 import { NgxPaginationModule } from 'ngx-pagination';
 
-import { DocumentTitleDirective } from '../directives';
-import { CustomHttp } from '../custom-http';
+import { DocumentTitleDirective } from './directives';
+import { CustomHttp } from './custom-http';
 
 @NgModule({
   declarations: [ DocumentTitleDirective ],

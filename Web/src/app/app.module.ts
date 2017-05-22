@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // app modules
-import { SharedModule } from './modules/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { UserSessionService } from './services';
 import { ENV_PROVIDERS } from './environment';
 import { routes } from './app.routes';

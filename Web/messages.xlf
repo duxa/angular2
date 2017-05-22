@@ -2,13 +2,11 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="a2f993b6d18dae80358baeeb511142165795899b" datatype="html">
-        <source>Home page</source>
+      <trans-unit id="aef7ad9cccc3c12731794034aecac9bc592c08bc" datatype="html">
+        <source>Home</source>
         <target/>
-      </trans-unit>
-      <trans-unit id="84d867271be0ace7c944317492f865da2b3392d5" datatype="html">
-        <source>This is test project where you can discover different registers:</source>
-        <target/>
+        <note priority="1" from="description">Link to the homepage from main menu</note>
+        <note priority="1" from="meaning">Homepage link</note>
       </trans-unit>
       <trans-unit id="1cd3c5801286a00506b2bb547fe13e10868f0239" datatype="html">
         <source>Public associations</source>
@@ -24,12 +22,6 @@
         <source>Notaries</source>
         <target/>
         <note priority="1" from="description">Link to the notaries register</note>
-      </trans-unit>
-      <trans-unit id="aef7ad9cccc3c12731794034aecac9bc592c08bc" datatype="html">
-        <source>Home</source>
-        <target/>
-        <note priority="1" from="description">Link to the homepage from main menu</note>
-        <note priority="1" from="meaning">Homepage link</note>
       </trans-unit>
       <trans-unit id="c733b3894340a4ed9f1a8511ea4c228018b78ac2" datatype="html">
         <source>Other languages:</source>

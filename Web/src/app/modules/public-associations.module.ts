@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { SharedModule } from './shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { PublicAssociationsService } from '../services';
 
 import { PublicAssociationsData } from '../mock-data/public-associations.data';
