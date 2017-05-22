@@ -1,0 +1,20 @@
+FROM mono:latest
+
+MAINTAINER Smirnov Aleksej
+
+RUN  apt-get update && apt-get install nunit-console
+RUN  apt-get install -y mono-devel
+RUN mozroots --import --ask-remove
+RUN yes | certmgr -ssl smtps://smtp.zoho.com:465
+
+RUN mkdir -p /usr/src/app/source /usr/src/app/build
+
+WORKDIR /usr/src/app/source
+
+COPY . /usr/src/app/source
+WORKDIR /usr/src/app/source/Microservices
+RUN nuget restore -NonInteractive
+RUN xbuild /property:Configuration=Release /property:OutDir=/usr/src/app/build/
+WORKDIR /usr/src/app/build
+
+CMD mono ./XMLParseStart.exe && /usr/bin/tail -f /var/webmin/miniserv.log 

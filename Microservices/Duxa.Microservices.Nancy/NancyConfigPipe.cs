@@ -18,7 +18,8 @@ namespace Duxa.Microservices.Nancy
     {
         public WebConfigPipe(IConfigPipe previous) : base(previous)
         {
-            using (Microsoft.Owin.Hosting.WebApp.Start<Startup>("http://localhost:8000"))
+            var url = "http://+:8080";
+            using (Microsoft.Owin.Hosting.WebApp.Start<Startup>(url))
             {
                 Console.WriteLine("Сервер запущен. Нажмите любую клавишу для завершения работы...");
                 Console.ReadLine();

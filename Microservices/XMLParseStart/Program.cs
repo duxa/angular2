@@ -16,8 +16,18 @@ namespace XMLParseStart
     {
         static void Main(string[] args)
         {
-            QuartzSheduller sheduller = new QuartzSheduller();
-            sheduller.ExecuteScheduler();
+            // QuartzSheduller sheduller = new QuartzSheduller();
+            // sheduller.ExecuteScheduler();
+            var clientService = new ClientService(new ClientRepository(), new SandBox());
+            Console.WriteLine("Start donwload...");
+            var path = clientService.DownloadFile(new Uri("http://old.minjust.gov.ua/downloads/15-UFOP.zip"));
+            Console.WriteLine("End donwload, start unzip");
+            var listPath = clientService.UnzipFiles(path);
+            Console.WriteLine("End unzip, start parse");
+            var clients = clientService.ParseClients(listPath.Where(x => x.Contains("FOP_")).ToList());
+            Console.WriteLine("Save to base");
+            clientService.SaveClients(clients);
+            Console.WriteLine("End parsing");
             TopshelfHost.Boot<MicroserviceA>(serviceName: "MicroserviceA");
         }
     }

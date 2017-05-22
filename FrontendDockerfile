@@ -1,12 +1,14 @@
-FROM node:latest
+FROM node:6
 
 MAINTAINER Smirnov Aleksej
 
 RUN mkdir -p /usr/src/app/source /usr/src/app/build
 
 COPY ./Web /usr/src/app/source
-WORKDIR /usr/src/app/source/Web
+WORKDIR /usr/src/app/source
 
 RUN npm install
-CMD [ "npm",  "run", "server" ]
+RUN npm install http-server -g
+RUN npm run build
+CMD [ "npm",  "run", "server:prod" ]
 
