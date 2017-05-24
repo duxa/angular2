@@ -42,11 +42,6 @@ export class PublicAssociationsService {
       result.TotalCount = totalCount;
     }
 
-    // #todo: data mapper should be used here
-    if (Array.isArray(result)) {
-      result.forEach((el) => el.DateReg = (new Date(el.DateReg)).toLocaleDateString() );
-    }
-
     return result;
   }
 }

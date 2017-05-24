@@ -1,12 +1,24 @@
-<h1 i18n="The new public organization|Title for the form of creation of new public organization"
-    document-title
-    *ngIf="!associationId">The new public organization</h1>
-
-<h1 i18n="Update public organization|Title for the form of updation of public organization"
-    document-title
-    *ngIf="associationId">Update public organization</h1>
-
 <form [formGroup]="associationForm" (ngSubmit)="onSubmit()" novalidate>
+  <ng-container *ngIf="!associationId">
+    <h1 i18n="The new public organization|Title for the form of creation of new public organization"
+        document-title>The new public organization</h1>
+  </ng-container>
+
+  <ng-container *ngIf="associationId">
+    <h1 i18n="Update public organization|Title for the form of updation of public organization"
+        document-title>Update public organization</h1>
+
+    <div class="form-group">
+      <label i18n>Registration Number</label>
+      <input type="text" disabled class="form-control" [value]="associationForm.get('RegNum').value" />
+    </div>
+
+    <div class="form-group">
+      <label i18n="Column header for Registration Date|Date of registration of public organization">Registration Date</label>
+      <input type="text" disabled class="form-control" [value]="associationForm.get('DateReg').value | date:'d/MM/yyyy'" />
+    </div>
+  </ng-container>
+
   <div class="form-group">
     <label i18n="Name field|Name field of public organization">Name</label>
     <input type="text"

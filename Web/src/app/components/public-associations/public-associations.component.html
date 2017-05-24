@@ -27,7 +27,7 @@
       <td>
         <a [routerLink]="['./', association.Id]">{{association.RegNum}}</a>
       </td>
-      <td>{{association.DateReg}}</td>
+      <td>{{association.DateReg | date:'d/MM/yyyy' }}</td>
       <td>{{association.Name}}</td>
       <td>{{association.VudName}}</td>
       <td>{{association.Edrpou}}</td>
