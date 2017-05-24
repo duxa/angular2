@@ -13,7 +13,6 @@ namespace Duxa.BL.Utils
     {
         public static IEnumerable<FOPS> GetClients(XDocument document)
         {
-            var x = document.Descendants("ROW");
             foreach (var row in document.Descendants("ROW"))
             {
                 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 using Duxa.BL.Utils;
 using Duxa.DAL;
@@ -40,14 +41,26 @@ namespace Duxa.BL
         public List<FOPS> ParseClients(List<string> pathes)
         {
             var clients = new List<FOPS>();
+            
 
-            foreach (var clientData in pathes)
+            foreach (var path in pathes)
             {
-                var rr = XDocument.Load(clientData);
-                var clientsTmp = ClientParserXML.GetClients(rr);
-                clients.AddRange(clientsTmp);
+               var  xElementCollections =  SimpleStreamAxis(path, "ROW").ToList();
+                var clientsCollection = xElementCollections.Select(x =>
+                {
+                    return new FOPS
+                    {
+                        FIO = x.Element(XName.Get("ПІБ")).Value,
+                        Address = x.Element(XName.Get("Місце_проживання")).Value,
+                        MainActivity = x.Element(XName.Get("Основний_вид_діяльності")).Value,
+                        Status = x.Element(XName.Get("Стан")).Value
+                    };
+                    
+                }).ToList();
+                clients.AddRange(clientsCollection);
             }
-            return clients;
+            
+             return clients;
         }
 
         public void SaveClients(List<FOPS> clients)
@@ -58,6 +71,34 @@ namespace Duxa.BL
         public FOPS GetFOP(string name)
         {
             return _clientRepository.Get(x => x.FIO.Contains(name));
+        }
+
+        public IEnumerable<XElement> SimpleStreamAxis(string inputUrl,
+                                              string elementName)
+        {
+            XmlReaderSettings settings = new XmlReaderSettings();
+
+
+            using (XmlReader reader = XmlReader.Create(inputUrl, settings))
+            {
+                
+                reader.MoveToContent();
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element)
+                    {
+                        if (reader.Name == elementName)
+                        {
+                            XElement el = XNode.ReadFrom(reader) as XElement;
+                            if (el != null)
+                            {
+                                yield return el;
+                            }
+                        }
+                    }
+                }
+                reader.Close();
+            }
         }
     }
 }
