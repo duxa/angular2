@@ -15,9 +15,5 @@ export const routes: Routes = [
   {
     path: 'notaries',
     loadChildren: './modules/notaries.module'
-  },
-  // {
-    // path: 'gantt-chart',
-    // loadChildren: './modules/gantt-chart.module'
-  // }
+  }
 ];

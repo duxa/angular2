@@ -83,7 +83,7 @@ export class PublicAssociationDetailComponent {
 
   private createForm() {
     this.associationForm = this.formBuilder.group({
-      // readonly fields
+      // readonly fields, available only for existing records
       Id: '',
       RegNum: '',
       DateReg: '',
