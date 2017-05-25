@@ -41,26 +41,12 @@ namespace Duxa.BL
         public List<FOPS> ParseClients(List<string> pathes)
         {
             var clients = new List<FOPS>();
-            
 
             foreach (var path in pathes)
             {
-               var  xElementCollections =  SimpleStreamAxis(path, "ROW").ToList();
-                var clientsCollection = xElementCollections.Select(x =>
-                {
-                    return new FOPS
-                    {
-                        FIO = x.Element(XName.Get("ПІБ")).Value,
-                        Address = x.Element(XName.Get("Місце_проживання")).Value,
-                        MainActivity = x.Element(XName.Get("Основний_вид_діяльності")).Value,
-                        Status = x.Element(XName.Get("Стан")).Value
-                    };
-                    
-                }).ToList();
-                clients.AddRange(clientsCollection);
+                 SimpleStreamAxis(path, "ROW");
             }
-            
-             return clients;
+            return null;
         }
 
         public void SaveClients(List<FOPS> clients)
@@ -73,15 +59,12 @@ namespace Duxa.BL
             return _clientRepository.Get(x => x.FIO.Contains(name));
         }
 
-        public IEnumerable<XElement> SimpleStreamAxis(string inputUrl,
-                                              string elementName)
+        public void SimpleStreamAxis(string inputUrl,string elementName)
         {
             XmlReaderSettings settings = new XmlReaderSettings();
-
-
+            
             using (XmlReader reader = XmlReader.Create(inputUrl, settings))
             {
-                
                 reader.MoveToContent();
                 while (reader.Read())
                 {
@@ -92,7 +75,14 @@ namespace Duxa.BL
                             XElement el = XNode.ReadFrom(reader) as XElement;
                             if (el != null)
                             {
-                                yield return el;
+                                var fops = new FOPS
+                                {
+                                    FIO = el.Element(XName.Get("ПІБ")).Value,
+                                    Address = el.Element(XName.Get("Місце_проживання")).Value,
+                                    MainActivity = el.Element(XName.Get("Основний_вид_діяльності")).Value,
+                                    Status = el.Element(XName.Get("Стан")).Value
+                                };
+                                _clientRepository.Save(fops);
                             }
                         }
                     }
