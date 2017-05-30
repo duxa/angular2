@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppModule.cs" />
+    <Compile Include="Controllers\FopsController.cs" />
     <Compile Include="Controllers\HelloWordController.cs" />
     <Compile Include="NancyConfigPipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

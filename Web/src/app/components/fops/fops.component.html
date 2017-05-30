@@ -1,0 +1,31 @@
+<h1 i18n="Title of register|The title of register of fops" document-title>The register of fops</h1>
+<div class="form-inline clearfix">
+  <div class="form-group pull-left">
+    <label for="searchAssociationsTerm" i18n>Search an fops:</label>
+    <input id="searchAssociationsTerm" type="text" class="form-control" #term (keyup)="search(term.value)"/>
+  </div>
+  <a class="btn btn-primary pull-right" [routerLink]="['./new']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
+</div>
+
+<table class="table table-bordered table-striped">
+  
+  <thead>
+    <tr>
+      <th i18n="Column header for Name|Name of fop">Name</th>
+      <th i18n="Column header for Address|Address of fop">Address</th>
+      <th i18n="Column header for MainActivity|MainActivity of fop">MainActivity</th>
+      <th i18n="Column header for Status|Status of public organization">Status</th>      
+    </tr>
+  </thead>
+ <tbody>
+    <tr *ngFor="let fop of fops | async | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
+      <td>
+        <a [routerLink]="['./', association.Id]">{{association.RegNum}}</a>
+      </td>      
+      <td>{{fop.Name}}</td>
+      <td>{{association.Address}}</td>
+      <td>{{association.MainActivity}}</td>      
+      <td>{{association.Status}}</td>
+    </tr>
+  </tbody>
+  </table>

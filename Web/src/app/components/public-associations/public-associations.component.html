@@ -1,27 +1,23 @@
 <h1 i18n="Title of register|The title of register of public organizations" document-title>The register of public organizations</h1>
 <div class="form-inline clearfix">
   <div class="form-group pull-left">
-    <label for="searchAssociationsTerm" i18n>Search an associations:</label>
+    <label for="searchAssociationsTerm" i18n>Search an fops:</label>
     <input id="searchAssociationsTerm" type="text" class="form-control" #term (keyup)="search(term.value)"/>
   </div>
   <a class="btn btn-primary pull-right" [routerLink]="['./new']" i18n="Register new link|Link to the 'register new organization' page">Register new</a>
 </div>
+
 <table class="table table-bordered table-striped">
+  
   <thead>
     <tr>
-      <th i18n="Column header for Numero sign|Numero sign for the public organization">№</th>
-      <th i18n="Column header for Registration Date|Date of registration of public organization">Registration Date</th>
-      <th i18n="Column header for Name|Name of public organization">Name</th>
-      <th i18n="Column header for Type|Type of public organization">Type</th>
-      <th i18n="Column header for EDRPOU|EDRPOU of public organization">EDRPOU</th>
-      <th i18n="Column header for Address|Address of public organization">Address</th>
-      <th i18n="Column header for Phone|Phone of public organization">Phone</th>
-      <th i18n="Column header for Founders|Founders of public organization">Founders</th>
-      <th i18n="Column header for Leaders|Leaders of public organization">Leaders</th>
-      <th i18n="Column header for KVED|KVED of public organization">KVED</th>
-      <th i18n="Column header for License|License of public organization">License</th>
+      <th i18n="Column header for Name|Name of fop">Name</th>
+      <th i18n="Column header for Address|Address of fop">Address</th>
+      <th i18n="Column header for MainActivity|MainActivity of fop">Type</th>
+      <th i18n="Column header for Status|Status of public organization">EDRPOU</th>      
     </tr>
   </thead>
+
   <tbody>
     <tr *ngFor="let association of associations | async | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
       <td>
