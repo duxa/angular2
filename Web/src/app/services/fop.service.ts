@@ -4,23 +4,23 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { PublicAssociation } from '../models';
+import { Fop } from '../models';
 
 @Injectable()
-export class PublicAssociationsService {
-  private publicAssociationsUrl: string = 'api/fops/';
+export class FomService {
+  private publicAssociationsUrl: string = '/api/fops/';
 
   constructor(private http: Http) {}
 
-  public get(params?: any): Observable<PublicAssociation[]> {
+  public get(params?: any): Observable<Fop[]> {
     return this.getData(this.publicAssociationsUrl, params);
   }
 
-  public getById(id: string): Observable<PublicAssociation> {
+  public getById(id: string): Observable<Fop> {
     return this.getData(this.publicAssociationsUrl + id);
   }
 
-  public update(association: PublicAssociation): Observable<PublicAssociation> {
+  public update(association: Fop): Observable<Fop> {
     return this.http
                .post(this.publicAssociationsUrl, association)
                .map(this.extractData);

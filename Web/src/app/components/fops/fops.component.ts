@@ -7,7 +7,10 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+
 import { Fop } from '../../models';
+import { FomService  } from '../../services';
+
 
 @Component({
   selector: 'public-associations',
@@ -25,7 +28,7 @@ export class FopsComponent implements OnInit {
   private searchTerm: string;
 
   constructor(
-    private publicAssociationsService: PublicAssociationsService
+    private fomService: FomService
   ) {}
 
   public ngOnInit() {
@@ -53,7 +56,7 @@ export class FopsComponent implements OnInit {
       this.totalCount = 0;
     }
 
-    this.associations = this.publicAssociationsService.get({
+    this.associations = this.fomService.get({
       page,
       itemsPerPage: this.itemsPerPage,
       Name: this.searchTerm
