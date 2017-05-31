@@ -19,7 +19,7 @@ import { FomService  } from '../../services';
 })
 
 export class FopsComponent implements OnInit {
-  public associations: Observable<Fop[]>;
+  public fops: Observable<Fop[]>;
   public itemsPerPage: number = 10;
   public totalCount: number = 0;
   public currentPage: number;
@@ -56,13 +56,13 @@ export class FopsComponent implements OnInit {
       this.totalCount = 0;
     }
 
-    this.associations = this.fomService.get({
+    this.fops = this.fomService.get({
       page,
       itemsPerPage: this.itemsPerPage,
       Name: this.searchTerm
     });
 
-    this.associations.subscribe((dto) => {
+    this.fops.subscribe((dto) => {
       this.totalCount = (dto && (dto as any).TotalCount) || 0;
       this.currentPage = page;
 
