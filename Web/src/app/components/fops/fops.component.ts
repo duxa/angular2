@@ -7,16 +7,19 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+
 import { Fop } from '../../models';
+import { FomService  } from '../../services';
+
 
 @Component({
-  selector: 'public-associations',
-  templateUrl: './public-associations.component.html',
-  styleUrls: [ './public-associations.component.less' ]
+  selector: 'fops',
+  templateUrl: './fops.component.html',
+  styleUrls: [ './fops.component.less' ]
 })
 
 export class FopsComponent implements OnInit {
-  public associations: Observable<Fop[]>;
+  public fops: Observable<Fop[]>;
   public itemsPerPage: number = 10;
   public totalCount: number = 0;
   public currentPage: number;
@@ -25,7 +28,7 @@ export class FopsComponent implements OnInit {
   private searchTerm: string;
 
   constructor(
-    private publicAssociationsService: PublicAssociationsService
+    private fomService: FomService
   ) {}
 
   public ngOnInit() {
@@ -53,13 +56,13 @@ export class FopsComponent implements OnInit {
       this.totalCount = 0;
     }
 
-    this.associations = this.publicAssociationsService.get({
+    this.fops = this.fomService.get({
       page,
       itemsPerPage: this.itemsPerPage,
       Name: this.searchTerm
     });
 
-    this.associations.subscribe((dto) => {
+    this.fops.subscribe((dto) => {
       this.totalCount = (dto && (dto as any).TotalCount) || 0;
       this.currentPage = page;
 

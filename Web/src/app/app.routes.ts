@@ -15,5 +15,9 @@ export const routes: Routes = [
   {
     path: 'notaries',
     loadChildren: './modules/notaries.module'
+  }, 
+  {
+    path: 'fop',
+    loadChildren: './module/fops.module'
   }
 ];
