@@ -13,9 +13,9 @@ import { FomService  } from '../../services';
 
 
 @Component({
-  selector: 'public-associations',
-  templateUrl: './public-associations.component.html',
-  styleUrls: [ './public-associations.component.less' ]
+  selector: 'fops',
+  templateUrl: './fops.component.html',
+  styleUrls: [ './fops.component.less' ]
 })
 
 export class FopsComponent implements OnInit {
