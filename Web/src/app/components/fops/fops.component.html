@@ -20,12 +20,12 @@
  <tbody>
     <tr *ngFor="let fop of fops | async | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalCount }">
       <td>
-        <a [routerLink]="['./', association.Id]">{{association.RegNum}}</a>
+        <a [routerLink]="['./', fop.Id]">{{fop.RegNum}}</a>
       </td>      
       <td>{{fop.Name}}</td>
-      <td>{{association.Address}}</td>
-      <td>{{association.MainActivity}}</td>      
-      <td>{{association.Status}}</td>
+      <td>{{fop.Address}}</td>
+      <td>{{fop.MainActivity}}</td>      
+      <td>{{fop.Status}}</td>
     </tr>
   </tbody>
   </table>
