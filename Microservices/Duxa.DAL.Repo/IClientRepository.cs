@@ -9,5 +9,6 @@ namespace Duxa.DAL.Repo
 {
     public interface IClientRepository: IRepository<FOPS>
     {
+         void CreateFopsIndexes();
     }
 }

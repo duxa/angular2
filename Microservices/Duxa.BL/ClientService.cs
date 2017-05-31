@@ -41,7 +41,7 @@ namespace Duxa.BL
         public List<FOPS> ParseClients(List<string> pathes)
         {
             var clients = new List<FOPS>();
-
+            ClearCollection("FOPS");
             foreach (var path in pathes)
             {
                  SimpleStreamAxis(path, "ROW");
@@ -59,10 +59,15 @@ namespace Duxa.BL
             return _clientRepository.Get(x => x.FIO.Contains(name));
         }
 
+        public void ClearCollection(string collactionName)
+        {
+            _clientRepository.DeleteAll(collactionName);
+        }
+
         public void SimpleStreamAxis(string inputUrl,string elementName)
         {
             XmlReaderSettings settings = new XmlReaderSettings();
-            
+            List<FOPS> fops = new List<FOPS>();
             using (XmlReader reader = XmlReader.Create(inputUrl, settings))
             {
                 reader.MoveToContent();
@@ -75,20 +80,31 @@ namespace Duxa.BL
                             XElement el = XNode.ReadFrom(reader) as XElement;
                             if (el != null)
                             {
-                                var fops = new FOPS
+                                var fop = new FOPS
                                 {
                                     FIO = el.Element(XName.Get("ПІБ")).Value,
                                     Address = el.Element(XName.Get("Місце_проживання")).Value,
                                     MainActivity = el.Element(XName.Get("Основний_вид_діяльності")).Value,
                                     Status = el.Element(XName.Get("Стан")).Value
                                 };
-                                _clientRepository.Save(fops);
+                                fops.Add(fop);
+                                if (fops.Count()>1000) {
+                                    _clientRepository.Save(fops);
+                                    fops.Clear();
+                                }
                             }
                         }
                     }
                 }
+                if (fops.Count() >0)
+                {
+                    _clientRepository.Save(fops);
+                    fops.Clear();
+
+                }
                 reader.Close();
             }
+            _clientRepository.CreateFopsIndexes();
         }
     }
 }

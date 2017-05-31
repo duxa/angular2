@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using Duxa.DAL.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace Duxa.DAL
 {
     public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
     {
         private readonly MongoClient _client;
-        private readonly IMongoDatabase _database;
+        protected readonly IMongoDatabase _database;
 
         private readonly string _connectionString;
 
@@ -39,6 +40,21 @@ namespace Duxa.DAL
         public List<TEntity> GetAll()
         {
             return this.Collection.AsQueryable().ToList();
+        }
+
+        public void DeleteAll(string collectionName)
+        {
+            _database.DropCollection(collectionName);
+            _database.CreateCollection(collectionName);
+        }
+
+        public long Count()
+        {
+            return this.Collection.Count(Builders<TEntity>.Filter.Empty);
+        }
+        public List<TEntity> GetPage(int pageNumber, int itemsOnPage)
+        {
+            return this.Collection.AsQueryable().Skip(itemsOnPage * pageNumber).Take(itemsOnPage).ToList();
         }
 
         public void Save(TEntity entity)

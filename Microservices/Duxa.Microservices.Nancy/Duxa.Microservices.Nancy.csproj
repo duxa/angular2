@@ -99,6 +99,7 @@
     <Compile Include="AppModule.cs" />
     <Compile Include="Controllers\FopsController.cs" />
     <Compile Include="Controllers\HelloWordController.cs" />
+    <Compile Include="Models\Page.cs" />
     <Compile Include="NancyConfigPipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -122,6 +123,9 @@
       <Project>{BBB11616-8C96-4D40-99A7-86F67D0B1990}</Project>
       <Name>Duxa.Microservices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

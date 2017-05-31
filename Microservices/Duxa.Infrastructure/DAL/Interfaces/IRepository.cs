@@ -13,5 +13,8 @@ namespace Duxa.DAL.Interfaces
         List<TEntity> GetAll();
         void Save(TEntity entity);
         void Save(List<TEntity> entity);
+        void DeleteAll(string collectionName);
+        long Count();
+        List<TEntity> GetPage(int pageNumber, int itemsOnPage);
     }
 }
